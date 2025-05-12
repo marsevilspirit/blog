@@ -1,7 +1,10 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = "marsevilspirit's blog"
-theme = 'magellanic'
+
+[module]
+  [[module.imports]]
+    path = 'github.com/marsevilspirit/magellanic'
 
 [menus]
   [[menus.main]]
