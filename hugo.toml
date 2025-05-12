@@ -19,3 +19,8 @@ title = "marsevilspirit's blog"
 
 [Params]
   logo = "marsevilspirit's blog"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
