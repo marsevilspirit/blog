@@ -9,6 +9,8 @@ On January 7, 2025, I traveled to Japan. I should have documented this experienc
 
 I stayed in Japan for about ten days and saw a lot of new things. It was just like I imagined Japan would be. I visited three cities: Osaka, Kyoto, and Tokyo. Each city has its own unique features and left a deep impression on me.
 
+#### January 7
+
 On January 7th at noon, I landed at Kansai International Airport in Osaka. Before landing, I looked out the window and was amazed to see that Japan is really an island in the sea. I was born in China, so I had never seen this kind of landscape before. After landing, we took the airport bus to the subway station. On the way, looking at the sea outside the bus reminded me of [EVA](https://en.wikipedia.org/wiki/Neon_Genesis_Evangelion), but in EVA, the sea is red! XD
 
 After that, I took the subway to [Namba](https://en.wikipedia.org/wiki/Namba). My hotel was nearby, close to many famous places. I quickly spoke a little in English with the hotel’s front desk and couldn’t wait to go out and have fun. Right outside my hotel was [Shinsaibashi](https://en.wikipedia.org/wiki/Shinsaibashi), so that was my first stop.
@@ -26,4 +28,16 @@ Each shop looked very fancy, and what left a deep impression on me was the big c
 
 <img src="shinsaibashi-shop.jpg" alt="shinsaibashi-shop" width="500" style="display: block; margin: 0 auto;"/>
 
-It was evening.  TODO
+Because I don’t exercise much, I went back to the hotel to rest for a while. In the evening, I went out for a walk again. [Dotonbori](https://en.wikipedia.org/wiki/D%C5%8Dtonbori) is near Shinsaibashi. I went there to walk around, and there were izakayas everywhere.
+
+<img src="dotonbori-night.jpg" alt="dotonbori-night" width="500" style="display: block; margin: 0 auto;"/>
+
+They looked very tempting, but I had already decided what to eat for dinner, so I resisted the temptation and went back.  Since I was really hungry, I went straight to my destination for the night—[Ichiran Ramen](https://en.wikipedia.org/wiki/Ichiran). I waited in a long line, and when I finally got to eat, it was incredibly tasty! The noodles were chewy, the broth was clear but very rich in flavor, the beef slices melted in my mouth, and the soft-boiled egg was perfect. It was so good that after finishing one bowl, I ordered another one!
+
+<img src="ichiran-ramen.jpg" alt="Ichiran Ramen" width="500" style="display: block; margin: 0 auto;"/>
+
+After eating and drinking enough, I went back to the hotel to get some good rest, preparing for a crazy day of traveling the next day.
+
+#### January 8
+
+TODO
