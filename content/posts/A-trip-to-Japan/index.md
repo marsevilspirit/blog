@@ -40,4 +40,28 @@ After eating and drinking enough, I went back to the hotel to get some good rest
 
 #### January 8
 
-TODO
+It was also a perfect day. I woke up around 8:00 and went to my destination for today—[Universal Studios](https://en.wikipedia.org/wiki/Universal_Studios_Japan). When I arrived, the doors were already open. Before I even went inside, I heard people screaming from the roller coasters, which was quite shocking.
+
+<img src="universal-studio-front.jpg" alt="universal studio front" width="700" style="display: block; margin: 0 auto;"/>
+
+<video id="myVideo" width="640" height="480" style="display: block; margin: 0 auto;">
+  <source src="universal-studio-front.MP4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<style>
+video {
+  cursor: pointer; /* Change cursor to pointer on hover */
+  border-radius: 10px; /* Add rounded corners */
+}
+</style>
+<script>
+const video = document.getElementById('myVideo');
+// Add click event to play and pause the video
+video.addEventListener('click', () => {
+  if (video.paused) {
+    video.play(); // Play the video if it is currently paused
+  } else {
+    video.pause(); // Pause the video if it is currently playing
+  }
+});
+</script>
