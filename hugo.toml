@@ -19,6 +19,10 @@ title = "marsevilspirit's blog"
 [Params]
   logo = "marsevilspirit's blog"
 
+  [[Params.social]]
+    name = "github"
+    url = "https://github.com/marsevilspirit"
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
