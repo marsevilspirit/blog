@@ -44,24 +44,5 @@ It was also a perfect day. I woke up around 8:00 and went to my destination for 
 
 <img src="universal-studio-front.jpg" alt="universal studio front" width="700" style="display: block; margin: 0 auto;"/>
 
-<video id="myVideo" width="640" height="480" style="display: block; margin: 0 auto;">
-  <source src="universal-studio-front.MP4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-<style>
-video {
-  cursor: pointer; /* Change cursor to pointer on hover */
-  border-radius: 10px; /* Add rounded corners */
-}
-</style>
-<script>
-const video = document.getElementById('myVideo');
-// Add click event to play and pause the video
-video.addEventListener('click', () => {
-  if (video.paused) {
-    video.play(); // Play the video if it is currently paused
-  } else {
-    video.pause(); // Pause the video if it is currently playing
-  }
-});
-</script>
+The first place I visited was the Harry Potter theme park, and it really felt incredibly authentic. Some people were waving their wands, which they had bought from the themed shop, and dramatically reciting spells at specific attractions. I also got to see a magnificent replica of Hogwarts Castle.
+<img src="hogwarts-castle.jpg" alt="Hogwarts Castle" width="500" style="display: block; margin: 0 auto;"/>
