@@ -46,3 +46,14 @@ It was also a perfect day. I woke up around 8:00 and went to my destination for 
 
 The first place I visited was the Harry Potter theme park, and it really felt incredibly authentic. Some people were waving their wands, which they had bought from the themed shop, and dramatically reciting spells at specific attractions. I also got to see a magnificent replica of Hogwarts Castle.
 <img src="hogwarts-castle.jpg" alt="Hogwarts Castle" width="500" style="display: block; margin: 0 auto;"/>
+
+Then I visited the much-talked-about [Super Nintendo World](https://en.wikipedia.org/wiki/Super_Nintendo_World). Although I ended up waiting in line for quite a while, it wasn't as fun as I had imagined. That said, the attention to detail in the scenery and set design was truly impressive!
+
+<img src="super-nintendo-world.jpg" alt="Super Nintendo World" width="800" style="display: block; margin: 0 auto;"/>
+
+I got to enjoy some delicious food! The sandwiches with fries at the Jaws-themed restaurant were fantastic, and the classic English dinner at the Harry Potter-themed restaurant was absolutely amazing. What a treat!
+
+<img src="universal-studios-food2.jpg" alt="universal studios food2" width="800" style="display: block; margin: 0 auto;"/>
+
+<img src="universal-studios-food1.jpg" alt="universal studios food1" width="800" style="display: block; margin: 0 auto;"/>
+
