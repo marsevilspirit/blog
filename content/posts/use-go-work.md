@@ -13,7 +13,7 @@ I used to envy Rust for having the concept of workspaces for cross-module develo
 
 Let's start by assuming we have the following modules:
 
-```shell
+```sh
 .
 ├── main
 ├── pkg1
