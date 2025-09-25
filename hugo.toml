@@ -19,9 +19,26 @@ title = "marsevilspirit's blog"
 [Params]
   logo = "marsevilspirit's blog"
 
+  # Home hero/personal info
+  [Params.home]
+    avatar = "/favicon.png"  # Avatar image path
+    name = "marsevilspirit"  # Display name
+    nameHighlight = "marsevilspirit"  # Highlighted substring in name
+    role = "software engineer"  # Role/occupation
+    intro = "I seek meaning in systems, both digital and human."  # Intro text
+    introHighlight = "I love coding."  # Highlighted phrase within intr
+
   [[Params.social]]
     name = "github"
     url = "https://github.com/marsevilspirit"
+
+  [[Params.social]]
+    name = "mastodon"
+    url = "https://infosec.exchange/@marsevilspirit"
+
+  [[Params.social]]
+    name = "email"
+    url = "mailto:marsevilspirit@gmail.com"
 
 [markup]
   [markup.goldmark]
