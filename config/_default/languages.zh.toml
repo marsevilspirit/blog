@@ -7,7 +7,7 @@ title = "marsevilspirit's blog"
 # copyright = "Copy, _right?_ :thinking_face:"
 
 [params]
-dateFormat = "2 January 2006"
+dateFormat = "2006年 1月 2日"
 
 # mainSections = ["section1", "section2"]
 # description = "My awesome website"

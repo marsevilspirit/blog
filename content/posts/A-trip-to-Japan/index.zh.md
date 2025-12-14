@@ -7,11 +7,11 @@ title = '日本之旅'
 
 2025 年 1 月 7 日，我去日本旅行了。我本该早点记录这段经历的，但回来后，我忙于准备 Google Summer of Code (GSoC)，几乎没有时间。幸运的是，我最终入选了 GSoC，所以我决定写一篇博客文章来纪念这段难忘的旅程。
 
-我在日本待了大约十天，看到了很多新奇的事物。这和我对日本的想象一模一样。我去了三个城市：大阪、京都和东京。每个城市都有其独特的特色，给我留下了深刻的印象。
+我在日本待了大约十天，看到了很多新奇的事物。我去了三个城市：大阪、京都和东京。每个城市都有其独特的特色，给我留下了深刻的印象。
 
 #### 1 月 7 日
 
-1 月 7 日中午，我降落在大阪关西国际机场。降落前，我望向窗外，惊奇地发现日本真的是海上的岛屿。我出生在中国，以前从未见过这种风景。降落后，我们需要乘坐机场巴士去地铁站。在路上，看着窗外的大海，让我想起了 [EVA](https://en.wikipedia.org/wiki/Neon_Genesis_Evangelion)，但在 EVA 里，海是红色的！XD
+1 月 7 日中午，我降落在大阪关西国际机场。降落前，我望向窗外，看到日本真的是海上的岛屿，还是感到不可思议。降落后，我们需要乘坐机场巴士去地铁站。在路上，看着窗外的大海，让我想起了 [EVA](https://en.wikipedia.org/wiki/Neon_Genesis_Evangelion)，但在 EVA 里，海是红色的。
 
 之后，我坐地铁去了 [难波](https://en.wikipedia.org/wiki/Namba)。我的酒店就在附近，靠近很多著名的地方。我很快和酒店前台用英语简单交流了一下，就迫不及待地想出去玩了。我的酒店外面就是 [心斋桥](https://en.wikipedia.org/wiki/Shinsaibashi)，所以那是我的第一站。
 
@@ -19,7 +19,7 @@ title = '日本之旅'
 ![shinsaibashi-noon2](shinsaibashi-noon2.jpg "心斋桥上")
 ![shinsaibashi-noon3](shinsaibashi-noon3.jpg)
 
-心斋桥真的是一个美丽的地方，符合我对大阪复古风格的印象。有很多游客，几乎全是外国人。之后，我在那里吃了一些东西。看起来很漂亮，但没我想象的那么好吃。
+心斋桥真的是一个美丽的地方，符合我对大阪复古风格的印象。有很多游客，几乎全是中国人。之后，我在那里吃了一些东西。看起来很有食欲，但没我想象的那么好吃。
 
 ![shinsaibashi-food1](shinsaibashi-food1.jpg "很甜很腻")
 ![shinsaibashi-food2](shinsaibashi-food2.jpg "章鱼小丸子")
@@ -36,23 +36,26 @@ title = '日本之旅'
 
 ![Ichiran Ramen](ichiran-ramen.jpg "好吃的一兰拉面")
 
-吃饱喝足后，我回酒店休息，准备迎接第二天疯狂的旅行。
+吃饱喝足后，我回酒店休息，准备第二天的环球影城的旅行。
 
 #### 1 月 8 日
 
-这也是完美的一天。我早上 8:00 左右醒来，前往今天的目的地——[环球影城](https://en.wikipedia.org/wiki/Universal_Studios_Japan)。我到达时，大门已经开了。还没进去，我就听到过山车上传来的尖叫声，真是太震撼了。
+这也是完美的一天。我早上 8:00 左右醒来，前往[环球影城](https://en.wikipedia.org/wiki/Universal_Studios_Japan)。我到达时，大门已经开了。还没进去，我就听到过山车上传来的尖叫声，真的非常震撼。
 
 ![universal studio front](universal-studio-front.jpg "环球影城的正门")
 
-我去的第一个地方是哈利波特主题公园，感觉真的无比真实。有些人挥舞着从主题商店买来的魔杖，在特定景点戏剧性地念着咒语。我还看到了一座宏伟的霍格沃茨城堡复制品。
-![Hogwarts Castle](hogwarts-castle.jpg "霍格沃滋城堡")
+我去的第一个地方是哈利波特主题公园，还原的非常好。有些人挥舞着从主题商店买来的魔杖，在特定景点念着咒语。我还看到了一座宏伟的霍格沃茨城堡。
 
-然后我去了备受瞩目的 [超级任天堂世界](https://en.wikipedia.org/wiki/Super_Nintendo_World)。虽然我最后排了很长时间的队，但并没有想象中那么好玩。不过，布景和舞台设计的细节真的让人印象深刻！
+![Hogwarts Castle](hogwarts-castle.jpg "霍格沃茨城堡")
+
+然后我去了备受瞩目的 [超级任天堂世界](https://en.wikipedia.org/wiki/Super_Nintendo_World)。虽然我最后排了很长时间的队，但并没有想象中那么好玩。不过，布景和舞台设计的细节真的让人印象深刻。
 
 ![Super Nintendo World](super-nintendo-world.jpg "超级马里奥世界")
 
-我吃到了一些美味的食物！大白鲨主题餐厅的薯条三明治棒极了，哈利波特主题餐厅的经典英式晚餐也绝对美味。真是一种享受！
+我在环球影城吃到了一些美味的食物。我在大白鲨主题餐厅点了薯条三明治套餐，薯条微微的咸味和美味多汁的三明治，再加上解腻的加冰可乐，标准的美式白人饭，但是味道确实很好。
 
 ![universal studios food2](universal-studios-food2.jpg "大白鲨主题餐厅")
 
-![universal studios food1](universal-studios-food1.jpg "哈利波特主题餐厅")
+哈利波特主题餐厅的经典英式晚餐出乎意料。我受不了蘑菇汤和没有调味的胡萝卜，但是甜玉米，鲜嫩多汁的鸡腿，抹着美味酱汁肉排和多汁的馅饼却很好吃。
+
+![universal studios food1](universal-studios-food1.jpeg "哈利波特主题餐厅")
