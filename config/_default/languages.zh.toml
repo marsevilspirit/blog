@@ -15,8 +15,8 @@ dateFormat = "2 January 2006"
 [params.author]
 name = "marsevilspirit"
 image = "img/author.png"
-headline = ""
-bio = ""
+headline = "软件工程师"
+bio = "Neovim 是我热爱编程的先决条件。"
 links = [
     { github = "https://github.com/marsevilspirit" },
     { mastodon = "https://infosec.exchange/@marsevilspirit" },
