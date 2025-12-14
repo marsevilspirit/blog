@@ -14,6 +14,6 @@ In terms of coding philosophy, I am a **minimalist**. I despise over-encapsulati
 
 **My Journey**
 - **2025 Google Summer of Code (GSoC):** I spent a fulfilling summer with the **Apache Dubbo** community. It was a journey that not only sharpened my technical skills but also allowed me to experience the charm of collaboration in the open-source world.
-- **OceanBase Internship:** I am currently navigating the deep waters of distributed databases. From the Raft protocol and storage engines to distributed transactions—within this massive system, I am voraciously absorbing everything related to "Consistency" and "High Availability."
+- **OceanBase Internship:** I am currently navigating the deep waters of distributed databases. From the Paxos protocol and storage engines to distributed transactions—within this massive system, I am voraciously absorbing everything related to "Consistency" and "High Availability."
 
 This is my **digital autobiography**. I use it to document my technical pitfalls and growth, and to combat the solitude often found in technical exploration. I hope the words written here serve as another medium for me to connect with the world.
