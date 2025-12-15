@@ -6,7 +6,7 @@
 # https://jpanther.github.io/congo/docs/configuration/#theme-parameters
 
 favicon = "img/author.png"
-colorScheme = "congo"
+colorScheme = "fire"
 defaultAppearance = "light" # valid options: light or dark
 autoSwitchAppearance = true
 
@@ -49,10 +49,10 @@ editAppendPath = true
 showHeadingAnchors = true
 showPagination = true
 invertPagination = false
-showReadingTime = false
-showTableOfContents = false
+showReadingTime = true
+showTableOfContents = true
 showTaxonomies = false
-showWordCount = false
+showWordCount = true
 showComments = false
 # sharingLinks = ["facebook", "x-twitter", "mastodon", "pinterest", "reddit", "linkedin", "email", "threads", "telegram", "line", "weibo", "xing", "bluesky"]
 

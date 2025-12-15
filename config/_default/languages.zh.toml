@@ -10,7 +10,7 @@ title = "marsevilspirit's blog"
 dateFormat = "2006年 1月 2日"
 
 # mainSections = ["section1", "section2"]
-# description = "My awesome website"
+description = "Marsevilspirit 的技术博客, 分享软件开发、Neovim 配置与网络安全心得。"
 
 [params.author]
 name = "marsevilspirit"
@@ -21,6 +21,7 @@ links = [
     { github = "https://github.com/marsevilspirit" },
     { mastodon = "https://infosec.exchange/@marsevilspirit" },
     { email = "mailto:marsevilspirit@gmail.com" },
+    { rss = "https://www.marsevilspirit.com/zh/index.xml" },
 ]
 # links = [
 #   { email = "mailto:hello@your_domain.com" },

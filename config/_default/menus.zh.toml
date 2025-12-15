@@ -21,12 +21,6 @@ pageRef = "about"
 weight = 20
 
 [[main]]
-identifier = "搜索"
-weight = 99
-[main.params]
-action = "search"
-
-[[main]]
 identifier = "语言"
 weight = 100
 [main.params]

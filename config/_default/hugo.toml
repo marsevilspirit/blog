@@ -6,6 +6,8 @@ baseURL = 'https://www.marsevilspirit.com'
 languageCode = "en"
 title = "marsevilspirit's blog"
 
+hasCJKLanguage = true
+
 enableRobotsTXT = true
 summaryLength = 0
 

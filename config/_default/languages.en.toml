@@ -10,7 +10,7 @@ title = "marsevilspirit's blog"
 dateFormat = "2 January 2006"
 
 # mainSections = ["section1", "section2"]
-# description = "My awesome website"
+description = "Marsevilspirit's personal blog about software engineering, Neovim, and infosec."
 
 [params.author]
 name = "marsevilspirit"
@@ -21,6 +21,7 @@ links = [
     { github = "https://github.com/marsevilspirit" },
     { mastodon = "https://infosec.exchange/@marsevilspirit" },
     { email = "mailto:marsevilspirit@gmail.com" },
+    { rss = "https://www.marsevilspirit.com/index.xml" },
 ]
 # links = [
 #   { email = "mailto:hello@your_domain.com" },
