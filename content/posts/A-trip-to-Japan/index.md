@@ -9,17 +9,19 @@ On January 7, 2025, I traveled to Japan. I should have documented this experienc
 
 I stayed in Japan for about ten days and saw a lot of new things. I visited three cities: Osaka, Kyoto, and Tokyo. Each city has its own unique features and left a deep impression on me.
 
-#### January 7
+## Osaka
+
+### January 7
 
 At noon on January 7th, I landed at Osaka Kansai International Airport. Before landing, I looked out the window and was still amazed to see that Japan truly is an island nation surrounded by the sea. After landing, we needed to take an airport bus to the subway station. Looking out at the ocean from the window on the way there reminded me of *Evangelion* ([EVA](https://en.wikipedia.org/wiki/Neon_Genesis_Evangelion)), but in *EVA*, the sea is red.
 
-After that, I took the subway to [Namba](https://en.wikipedia.org/wiki/Namba). My hotel was nearby, close to many famous places. I quickly spoke a little in English with the hotel’s front desk and couldn’t wait to go out and have fun. Right outside my hotel was [Shinsaibashi](https://en.wikipedia.org/wiki/Shinsaibashi), so that was my first stop.
+Afterwards, I took the subway to [Namba](https://en.wikipedia.org/wiki/Namba). My hotel was located nearby, close to many famous landmarks. After a quick and simple exchange with the front desk, I couldn't wait to head out. [Shinsaibashi](https://en.wikipedia.org/wiki/Shinsaibashi) was right outside my hotel, so that was my first stop.
 
 ![shinsaibashi-noon1](shinsaibashi-noon1.jpg "shinsaibashi")
 ![shinsaibashi-noon2](shinsaibashi-noon2.jpg "On the Shinsai Bridge")
 ![shinsaibashi-noon3](shinsaibashi-noon3.jpg)
 
-Shinsaibashi is really a beautiful place and matches my impression of Osaka's retro style. There were many tourists, almost all of them were Chinese. After that, I ate some food there. It looks very appetizing, but it wasn't as delicious as I expected.
+Shinsaibashi is a bustling and crowded place. It exudes a sense of Showa-era opulence and prosperity, perfectly matching my impression of Osaka's retro vibe. It was packed with tourists, almost all of whom were Chinese. Later, I grabbed a bite to eat there. The food looked very appetizing, but it didn't taste quite as good as I had imagined.
 
 ![shinsaibashi-food1](shinsaibashi-food1.jpg "Very sweet and greasy")
 ![shinsaibashi-food2](shinsaibashi-food2.jpg "Octopus balls")
@@ -28,7 +30,7 @@ Each shop looked very fancy, and what left a deep impression on me was the big c
 
 ![shinsaibashi-shop](shinsaibashi-shop.jpg)
 
-Because I don’t exercise much, I went back to the hotel to rest for a while. In the evening, I went out for a walk again. [Dotonbori](https://en.wikipedia.org/wiki/D%C5%8Dtonbori) is near Shinsaibashi. I went there to walk around, and there were izakayas everywhere.
+Since I don't exercise much, I got tired after walking for a while and went back to the hotel to rest. In the evening, I went out for another stroll. [Dotonbori](https://en.wikipedia.org/wiki/Dōtonbori) is right near Shinsaibashi. I wandered around the area, and it was packed with Izakayas. Osaka at night has a truly unique character. Unlike the daytime atmosphere where people are rushing about, there is a sense of indulgence in the air.
 
 ![dotonbori-night](dotonbori-night.jpg "A casual photo of an alley in Dotonbori")
 
@@ -38,7 +40,7 @@ They looked very tempting, but I had already decided what to eat for dinner, so 
 
 After eating and drinking enough, I went back to the hotel to rest and prepare for the trip to Universal Studios the next day.
 
-#### January 8
+### January 8
 
 It was also a perfect day. I woke up around 8:00 and went [Universal Studios](https://en.wikipedia.org/wiki/Universal_Studios_Japan). When I arrived, the doors were already open. Before I even went inside, I heard people screaming from the roller coasters, which was quite shocking.
 

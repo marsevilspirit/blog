@@ -9,26 +9,28 @@ title = '日本之旅'
 
 我在日本待了大约十天，看到了很多新奇的事物。我去了三个城市：大阪、京都和东京。每个城市都有其独特的特色，给我留下了深刻的印象。
 
-#### 1 月 7 日
+## 大阪
+
+### 1 月 7 日
 
 1 月 7 日中午，我降落在大阪关西国际机场。降落前，我望向窗外，看到日本真的是海上的岛屿，还是感到不可思议。降落后，我们需要乘坐机场巴士去地铁站。在路上，看着窗外的大海，让我想起了 [EVA](https://en.wikipedia.org/wiki/Neon_Genesis_Evangelion)，但在 EVA 里，海是红色的。
 
-之后，我坐地铁去了 [难波](https://en.wikipedia.org/wiki/Namba)。我的酒店就在附近，靠近很多著名的地方。我很快和酒店前台用英语简单交流了一下，就迫不及待地想出去玩了。我的酒店外面就是 [心斋桥](https://en.wikipedia.org/wiki/Shinsaibashi)，所以那是我的第一站。
+之后，我坐地铁去了 [难波](https://en.wikipedia.org/wiki/Namba)。我的酒店就在附近，靠近很多著名的地方。我很快和酒店前台简单交流了一下，就迫不及待地出去了。我的酒店外面就是 [心斋桥](https://en.wikipedia.org/wiki/Shinsaibashi)，所以那是我的第一站。
 
 ![shinsaibashi-noon1](shinsaibashi-noon1.jpg "心斋桥上的河道")
 ![shinsaibashi-noon2](shinsaibashi-noon2.jpg "心斋桥上")
 ![shinsaibashi-noon3](shinsaibashi-noon3.jpg)
 
-心斋桥真的是一个美丽的地方，符合我对大阪复古风格的印象。有很多游客，几乎全是中国人。之后，我在那里吃了一些东西。看起来很有食欲，但没我想象的那么好吃。
+心斋桥是一个很热闹拥挤的地方，感觉有一种昭和时期的奢侈和繁华，符合我对大阪复古风格的印象。有很多游客，几乎全是中国人。之后，我在那里吃了一些东西。看起来很有食欲，但没我想象的那么好吃。
 
 ![shinsaibashi-food1](shinsaibashi-food1.jpg "很甜很腻")
-![shinsaibashi-food2](shinsaibashi-food2.jpg "章鱼小丸子")
+![shinsaibashi-food2](shinsaibashi-food2.jpg "很咸的章鱼小丸子")
 
 每家店看起来都很豪华，给我留下深刻印象的是那只大螃蟹。真的很大。
 
 ![shinsaibashi-shop](shinsaibashi-shop.jpg)
 
-因为我不太运动，所以我回酒店休息了一会儿。晚上，我又出去散步了。[道顿堀](https://en.wikipedia.org/wiki/D%C5%8Dtonbori) 就在心斋桥附近。我去那里逛了逛，到处都是居酒屋。
+因为我平时不太运动，逛一会就累了，所以我回酒店休息了一会儿。晚上，我又出去散步了。[道顿堀](https://en.wikipedia.org/wiki/D%C5%8Dtonbori) 就在心斋桥附近。我去那里逛了逛，到处都是居酒屋。夜晚的大阪极具特色，跟白天人们急急忙忙到处奔波的气氛不同，有一种放纵的感觉。
 
 ![dotonbori-night](dotonbori-night.jpg "道顿堀随手拍的一个巷子")
 
@@ -38,7 +40,7 @@ title = '日本之旅'
 
 吃饱喝足后，我回酒店休息，准备第二天的环球影城的旅行。
 
-#### 1 月 8 日
+### 1 月 8 日
 
 这也是完美的一天。我早上 8:00 左右醒来，前往[环球影城](https://en.wikipedia.org/wiki/Universal_Studios_Japan)。我到达时，大门已经开了。还没进去，我就听到过山车上传来的尖叫声，真的非常震撼。
 
