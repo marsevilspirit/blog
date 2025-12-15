@@ -1,7 +1,7 @@
 +++
 date = '2025-05-12T17:28:03+08:00'
 draft = false
-title = 'About'
+title = 'About Me'
 +++
 
 Hi, I'm **marsevilspirit**.
@@ -13,6 +13,7 @@ For me, **Neovim** is more than just an editor; it is a prerequisite for my enjo
 In terms of coding philosophy, I am a **minimalist**. I despise over-encapsulation and unnecessary complexity, always striving for code that is elegant and intuitive.
 
 **My Journey**
+- **Member of Xiyou Linux Group:** It is a great honor to be a member of the Xiyou Linux Group (2023 Cohort). Officially joining this laboratory is what set me on the path to learning programming.
 - **2025 Google Summer of Code (GSoC):** I spent a fulfilling summer with the **Apache Dubbo** community. It was a journey that not only sharpened my technical skills but also allowed me to experience the charm of collaboration in the open-source world.
 - **OceanBase Internship:** I am currently navigating the deep waters of distributed databases. From the Paxos protocol and storage engines to distributed transactions—within this massive system, I am voraciously absorbing everything related to "Consistency" and "High Availability."
 
