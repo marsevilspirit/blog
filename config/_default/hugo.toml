@@ -7,7 +7,7 @@ languageCode = "en"
 title = "marsevilspirit's blog"
 
 hasCJKLanguage = true
-
+buildDrafts = true
 enableRobotsTXT = true
 summaryLength = 0
 
