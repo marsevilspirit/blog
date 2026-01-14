@@ -6,7 +6,7 @@ title = '2025 Summary'
 
 Looking back at December 17th, 2025 was a year of "new beginnings" and "tough choices" for me.
 
-The story began with a trip to Japan at the start of the year. Turning 20 and traveling to Japan was truly meaningful.
+The story began with a trip to Japan at the start of the year. Turning 20 and traveling to Japan was truly meaningful—a way to tie up the loose ends of my past.
 
 At that time, I was actively involved in the dubbo-go community, full of curiosity about the open source world.
 
