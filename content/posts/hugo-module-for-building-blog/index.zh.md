@@ -12,6 +12,6 @@ title = '使用 Hugo Module 构建博客'
 
 我不再需要在我的博客文件夹中创建一个 theme 目录。我可以只专注于我的文章内容。Hugo modules 的命令就像 Go modules 一样，使用起来非常舒服。版本控制非常出色，相比之下，虽然我不太熟悉 npm，但 Hugo modules 几乎是无敌的！
 
-我目前的博客使用的是我创建的一个名为 [Magellanic](https://github.com/marsevilspirit/magellanic) 的主题，我的 [博客](https://github.com/marsevilspirit/blog) 就是用它构建的。如果你去查看，你会发现 Magellanic 只包含代码，而博客只包含文章。这种分离对我来说太美妙了！我使用 Cloudflare Pages 进行了部署。使用 Cloudflare Pages 是另一个伟大的决定。部署环境非常智能；它内置了 Go 环境，并且对 HTTP/3 有很好的支持（我是 HTTP/3 的忠实支持者）。我几乎不需要配置任何东西，因为 Cloudflare 为我处理了一切。他们真的做得非常出色！
+我目前的博客使用的是 [Congo v2](https://github.com/jpanther/congo/v2) 主题，我的 [博客](https://github.com/marsevilspirit/blog) 就是用它构建的。如果你去查看，你会发现 Congo 主题只包含代码，而博客只包含文章。这种分离对我来说太美妙了！我使用 Cloudflare Pages 进行了部署。使用 Cloudflare Pages 是另一个伟大的决定。部署环境非常智能；它内置了 Go 环境，并且对 HTTP/3 有很好的支持（我是 HTTP/3 的忠实支持者）。我几乎不需要配置任何东西，因为 Cloudflare 为我处理了一切。他们真的做得非常出色！
 
 总之，我认为 Hugo modules 毫无疑问是构建博客的最佳选择。
