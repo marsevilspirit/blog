@@ -5,6 +5,7 @@ import Footer from '../../../components/Footer.astro';
 import FormattedDate from '../../../components/FormattedDate.astro';
 import Header from '../../../components/Header.astro';
 import { LANGUAGES, SITE, SITE_TITLE, type Lang } from '../../../config';
+import { mainContentTransition } from '../../../transitions';
 import {
 	groupByYear,
 	groupsForLang,
@@ -45,7 +46,7 @@ const yearGroups = groupByYear(
 	</head>
 	<body>
 		<Header lang={lang} alternates={alternates} />
-		<main>
+		<main transition:name="main" transition:animate={mainContentTransition}>
 			<h1>{copy.posts.title}</h1>
 			<p>{copy.posts.description}</p>
 

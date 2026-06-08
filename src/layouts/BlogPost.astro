@@ -5,6 +5,7 @@ import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import type { Lang } from '../config';
 import type { Alternates } from '../i18n';
+import { mainContentTransition } from '../transitions';
 
 interface Props {
 	title: string;
@@ -25,7 +26,7 @@ const { title, description, pubDate, updatedDate, lang, alternates } = Astro.pro
 
 	<body>
 		<Header lang={lang} alternates={alternates} />
-		<main>
+		<main transition:name="main" transition:animate={mainContentTransition}>
 			<article>
 				<header class="post-header">
 					<h1>{title}</h1>

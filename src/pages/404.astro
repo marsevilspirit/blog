@@ -4,6 +4,7 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_TITLE } from '../config';
 import { sitePageAlternates } from '../i18n';
+import { mainContentTransition } from '../transitions';
 
 const lang = 'en';
 const alternates = sitePageAlternates('home');
@@ -21,7 +22,7 @@ const alternates = sitePageAlternates('home');
 	</head>
 	<body>
 		<Header lang={lang} alternates={alternates} />
-		<main>
+		<main transition:name="main" transition:animate={mainContentTransition}>
 			<h1>Page not found</h1>
 			<p>The page you are looking for does not exist.</p>
 			<p><a href="/en/">Go to {SITE_TITLE}</a></p>
