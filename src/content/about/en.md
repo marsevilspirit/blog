@@ -1,6 +1,6 @@
 ---
 title: 'About Me'
-description: 'To write elegant code with human logic—this is the meaning of my existence.'
+description: 'I like breaking complex problems down clearly, then turning them into simple, maintainable code.'
 ---
 
 Hi, I'm **marsevilspirit**.

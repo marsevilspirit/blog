@@ -2,7 +2,7 @@ description = "Marsevilspirit's personal blog about software engineering, Neovim
 htmlLang = "en"
 dateLocale = "en-GB"
 authorHeadline = "software engineer"
-authorBio = "To write elegant code with human logic—this is the meaning of my existence."
+authorBio = "I like breaking complex problems down clearly, then turning them into simple, maintainable code."
 
 [dateOptions]
 year = "numeric"

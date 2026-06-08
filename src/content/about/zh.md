@@ -1,6 +1,6 @@
 ---
 title: '关于我'
-description: '用人类的逻辑写出优雅的代码，这是我活着的意义。'
+description: '我喜欢把复杂的问题拆清楚，再写成简单可维护的代码。'
 ---
 
 你好，我是 **marsevilspirit**。

@@ -156,11 +156,14 @@ test('legacy source paths are removed and TOML config files exist', () => {
 
 test('site copy is read from TOML config instead of hardcoded source constants', () => {
 	const zhConfigToml = read('config/zh.toml');
-	assert.match(zhConfigToml, /authorBio = "用人类的逻辑写出优雅的代码，这是我活着的意义。"/);
+	assert.match(zhConfigToml, /authorBio = "我喜欢把复杂的问题拆清楚，再写成简单可维护的代码。"/);
 
 	const configSource = read('src/config.ts');
 	assert.match(configSource, /readSiteConfig/);
-	assert.doesNotMatch(configSource, /authorBio: '用人类的逻辑写出优雅的代码，这是我活着的意义。'/);
+	assert.doesNotMatch(
+		configSource,
+		/authorBio: '我喜欢把复杂的问题拆清楚，再写成简单可维护的代码。'/,
+	);
 });
 
 test('about content has exactly one Markdown file per supported language', () => {

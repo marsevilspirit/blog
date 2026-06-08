@@ -152,13 +152,13 @@ authorHeadline = "软件工程师"
 首页和 About Profile 中显示的作者简介句子。
 
 ```toml
-authorBio = "To write elegant code with human logic—this is the meaning of my existence."
+authorBio = "I like breaking complex problems down clearly, then turning them into simple, maintainable code."
 ```
 
 中文：
 
 ```toml
-authorBio = "用人类的逻辑写出优雅的代码，这是我活着的意义。"
+authorBio = "我喜欢把复杂的问题拆清楚，再写成简单可维护的代码。"
 ```
 
 如果要改你首页 Profile 里的那句话，就改对应语言文件里的 `authorBio`。
