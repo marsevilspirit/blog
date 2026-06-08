@@ -1,0 +1,55 @@
+---
+import { SITE, SITE_TITLE, type Lang } from '../config';
+import { aboutPath, homePath, postsPath, type Alternates } from '../i18n';
+import HeaderLink from './HeaderLink.astro';
+import LanguageSelect from './LanguageSelect.astro';
+
+interface Props {
+	lang: Lang;
+	alternates: Alternates;
+}
+
+const { lang, alternates } = Astro.props;
+const nav = SITE[lang].nav;
+---
+
+<header>
+	<nav>
+		<a class="site-title" href={homePath(lang)}>{SITE_TITLE}</a>
+		<div class="internal-links">
+			<HeaderLink href={postsPath(lang)}>{nav.posts}</HeaderLink>
+			<HeaderLink href={aboutPath(lang)}>{nav.about}</HeaderLink>
+			<LanguageSelect lang={lang} alternates={alternates} />
+		</div>
+	</nav>
+</header>
+<style>
+	header {
+		margin: 0 auto;
+		width: var(--content-width);
+		max-width: calc(100% - 2rem);
+		padding: 2rem 0 1.25rem;
+		border-bottom: 1px solid var(--border);
+	}
+
+	nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+	nav a {
+		color: var(--text);
+	}
+	.site-title {
+		font-size: 1.15rem;
+		font-weight: 700;
+	}
+	.internal-links {
+		display: flex;
+		align-items: baseline;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+	}
+</style>

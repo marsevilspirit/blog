@@ -1,0 +1,69 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import { AUTHOR_AVATAR, AUTHOR_LINKS, AUTHOR_NAME, LANGUAGES, SITE, SITE_TITLE, type Lang } from '../../config';
+import { rssPath, sitePageAlternates, validateAbout } from '../../i18n';
+
+export async function getStaticPaths() {
+	const about = validateAbout(await getCollection('about'));
+	return LANGUAGES.map((lang) => ({
+		params: { lang },
+		props: { lang, entry: about[lang] },
+	}));
+}
+
+interface Props {
+	lang: Lang;
+	entry: CollectionEntry<'about'>;
+}
+
+const { lang, entry } = Astro.props;
+const copy = SITE[lang];
+const alternates = sitePageAlternates('about');
+const { Content } = await render(entry);
+const authorLinks = AUTHOR_LINKS.map((link) =>
+	link.label === 'RSS' ? { ...link, href: rssPath(lang) } : link,
+);
+---
+
+<!doctype html>
+<html lang={copy.htmlLang}>
+	<head>
+		<BaseHead
+			title={`${entry.data.title} - ${SITE_TITLE}`}
+			description={entry.data.description}
+			lang={lang}
+			alternates={alternates}
+		/>
+	</head>
+	<body>
+		<Header lang={lang} alternates={alternates} />
+		<main>
+			<section class="author-profile">
+				<img class="author-avatar" src={AUTHOR_AVATAR} alt={AUTHOR_NAME} />
+				<div>
+					<h1>{entry.data.title}</h1>
+					<p class="muted">{AUTHOR_NAME} · {copy.authorHeadline}</p>
+					<p>{copy.authorBio}</p>
+					<ul class="inline-links">
+						{
+							authorLinks.map((link) => (
+								<li>
+									<a href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined}>
+										{link.label}
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</div>
+			</section>
+			<div class="prose">
+				<Content />
+			</div>
+		</main>
+		<Footer lang={lang} />
+	</body>
+</html>

@@ -1,0 +1,45 @@
+---
+import { AUTHOR_LINKS, SITE, SITE_TITLE, type Lang } from '../config';
+import { rssPath } from '../i18n';
+
+interface Props {
+	lang: Lang;
+}
+
+const today = new Date();
+const { lang } = Astro.props;
+const links = AUTHOR_LINKS.map((link) => (link.label === 'RSS' ? { ...link, href: rssPath(lang) } : link));
+---
+
+<footer>
+	<p>&copy; {today.getFullYear()} {SITE_TITLE}</p>
+	<nav aria-label={SITE[lang].footer.authorLinks}>
+		{
+			links.map((link) => (
+				<a href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined}>
+					{link.label}
+				</a>
+			))
+		}
+	</nav>
+</footer>
+<style>
+	footer {
+		margin: 3rem auto 0;
+		width: var(--content-width);
+		max-width: calc(100% - 2rem);
+		padding: 1.5rem 0 3rem;
+		border-top: 1px solid var(--border);
+		color: var(--muted);
+		font-size: 0.95rem;
+	}
+	footer p {
+		margin: 0.25rem 0;
+	}
+	nav {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: 0.5rem;
+	}
+</style>

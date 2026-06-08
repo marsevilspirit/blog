@@ -1,0 +1,72 @@
+---
+import { LANGUAGES, SITE, type Lang } from '../config';
+import { languageLabel, type Alternates } from '../i18n';
+
+interface Props {
+	lang: Lang;
+	alternates: Alternates;
+}
+
+const { lang, alternates } = Astro.props;
+const options = LANGUAGES.filter((candidate) => alternates[candidate]);
+const fallbackLinks = options.filter((candidate) => candidate !== lang);
+---
+
+<div class="language-select">
+	<select id="language-select" aria-label={SITE[lang].nav.language}>
+		{
+			options.map((candidate) => (
+				<option value={alternates[candidate]} selected={candidate === lang}>
+					{languageLabel(candidate)}
+				</option>
+			))
+		}
+	</select>
+	{
+		fallbackLinks.length > 0 && (
+			<noscript>
+				<span class="language-fallback">
+					{
+						fallbackLinks.map((candidate) => (
+							<a href={alternates[candidate]}>{languageLabel(candidate)}</a>
+						))
+					}
+				</span>
+			</noscript>
+		)
+	}
+</div>
+
+<script>
+	document.addEventListener('change', (event) => {
+		const target = event.target;
+		if (!(target instanceof HTMLSelectElement) || !target.closest('.language-select')) {
+			return;
+		}
+		if (target.value && target.value !== window.location.pathname) {
+			window.location.href = target.value;
+		}
+	});
+</script>
+
+<style>
+	.language-select {
+		display: inline-flex;
+		align-items: baseline;
+		gap: 0.35rem;
+	}
+
+	.language-select select {
+		max-width: 8rem;
+		border: 1px solid var(--border);
+		border-radius: 3px;
+		background: var(--background);
+		color: var(--text);
+		font: inherit;
+		font-size: 0.95rem;
+	}
+
+	.language-fallback {
+		margin-left: 0.5rem;
+	}
+</style>

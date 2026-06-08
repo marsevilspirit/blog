@@ -1,0 +1,68 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../../../components/BaseHead.astro';
+import Footer from '../../../components/Footer.astro';
+import FormattedDate from '../../../components/FormattedDate.astro';
+import Header from '../../../components/Header.astro';
+import { LANGUAGES, SITE, SITE_TITLE, type Lang } from '../../../config';
+import { groupByYear, groupsForLang, postPath, publishedPostGroups, sitePageAlternates } from '../../../i18n';
+import { postExcerpt } from '../../../post-excerpt';
+
+export function getStaticPaths() {
+	return LANGUAGES.map((lang) => ({
+		params: { lang },
+		props: { lang },
+	}));
+}
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const copy = SITE[lang];
+const alternates = sitePageAlternates('posts');
+const yearGroups = groupByYear(groupsForLang(publishedPostGroups(await getCollection('posts')), lang));
+---
+
+<!doctype html>
+<html lang={copy.htmlLang}>
+	<head>
+		<BaseHead
+			title={`${copy.posts.title} - ${SITE_TITLE}`}
+			description={copy.posts.description}
+			lang={lang}
+			alternates={alternates}
+		/>
+	</head>
+	<body>
+		<Header lang={lang} alternates={alternates} />
+		<main>
+			<h1>{copy.posts.title}</h1>
+			<p>{copy.posts.description}</p>
+
+			{
+				yearGroups.map(({ year, groups }) => (
+					<section aria-labelledby={`year-${year}`}>
+						<h2 id={`year-${year}`}>{year}</h2>
+						<ul class="post-list">
+							{
+								groups.map((group) => {
+									const post = group.entries[lang]!;
+									return (
+										<li>
+											<a href={postPath(lang, group.slug)}>{post.data.title}</a>
+											<FormattedDate date={group.date} lang={lang} />
+											<p>{postExcerpt(post.body, post.data.description)}</p>
+										</li>
+									);
+								})
+							}
+						</ul>
+					</section>
+				))
+			}
+		</main>
+		<Footer lang={lang} />
+	</body>
+</html>

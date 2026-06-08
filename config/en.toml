@@ -1,0 +1,26 @@
+description = "Marsevilspirit's personal blog about software engineering, Neovim, and infosec."
+htmlLang = "en"
+dateLocale = "en-GB"
+authorHeadline = "software engineer"
+authorBio = "To write elegant code with human logic—this is the meaning of my existence."
+
+[dateOptions]
+year = "numeric"
+month = "long"
+day = "numeric"
+
+[nav]
+posts = "Posts"
+about = "About"
+language = "Language"
+
+[home]
+recentPosts = "Recent posts"
+allPosts = "All posts"
+
+[posts]
+title = "Posts"
+description = "All posts, grouped by year."
+
+[footer]
+authorLinks = "Author links"

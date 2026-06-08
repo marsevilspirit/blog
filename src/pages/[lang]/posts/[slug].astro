@@ -1,0 +1,37 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import BlogPost from '../../../layouts/BlogPost.astro';
+import { LANGUAGES, type Lang } from '../../../config';
+import { groupAlternates, publishedPostGroups } from '../../../i18n';
+
+export async function getStaticPaths() {
+	const groups = publishedPostGroups(await getCollection('posts'));
+	return groups.flatMap((group) =>
+		LANGUAGES.flatMap((lang) => {
+			const entry = group.entries[lang];
+			if (!entry) {
+				return [];
+			}
+			return [
+				{
+					params: { lang, slug: group.slug },
+					props: { entry, lang, alternates: groupAlternates(group) },
+				},
+			];
+		}),
+	);
+}
+
+interface Props {
+	entry: CollectionEntry<'posts'>;
+	lang: Lang;
+	alternates: ReturnType<typeof groupAlternates>;
+}
+
+const { entry, lang, alternates } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<BlogPost {...entry.data} lang={lang} alternates={alternates}>
+	<Content />
+</BlogPost>

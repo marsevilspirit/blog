@@ -1,0 +1,18 @@
+---
+import { SITE_TITLE } from '../config';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<meta http-equiv="refresh" content="0;url=/en/" />
+		<link rel="canonical" href={new URL('/en/', Astro.site)} />
+		<title>{SITE_TITLE}</title>
+		<script is:inline>location.replace('/en/')</script>
+	</head>
+	<body>
+		<p><a href="/en/">Continue to English site</a></p>
+	</body>
+</html>

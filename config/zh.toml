@@ -1,0 +1,26 @@
+description = "Marsevilspirit 的技术博客, 分享软件开发、Neovim 配置与网络安全心得。"
+htmlLang = "zh-CN"
+dateLocale = "zh-CN"
+authorHeadline = "软件工程师"
+authorBio = "用人类的逻辑写出优雅的代码，这是我活着的意义。"
+
+[dateOptions]
+year = "numeric"
+month = "long"
+day = "numeric"
+
+[nav]
+posts = "文章"
+about = "关于"
+language = "语言"
+
+[home]
+recentPosts = "最近文章"
+allPosts = "全部文章"
+
+[posts]
+title = "文章"
+description = "按年份分组的全部文章。"
+
+[footer]
+authorLinks = "作者链接"

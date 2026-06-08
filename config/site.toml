@@ -1,0 +1,23 @@
+title = "marsevilspirit's blog"
+defaultLang = "en"
+languages = ["en", "zh"]
+
+[author]
+name = "marsevilspirit"
+avatar = "/img/author.png"
+
+[[author.links]]
+label = "GitHub"
+href = "https://github.com/marsevilspirit"
+
+[[author.links]]
+label = "Mastodon"
+href = "https://infosec.exchange/@marsevilspirit"
+
+[[author.links]]
+label = "Email"
+href = "mailto:marsevilspirit@gmail.com"
+
+[[author.links]]
+label = "RSS"
+href = "/rss.xml"
