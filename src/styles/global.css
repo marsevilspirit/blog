@@ -239,6 +239,37 @@ time,
 	border: 0;
 }
 
+@keyframes main-content-in {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes main-content-out {
+	from {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	to {
+		opacity: 0;
+		transform: translateY(-6px);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	::view-transition-old(main),
+	::view-transition-new(main) {
+		animation: none !important;
+	}
+}
+
 @media (max-width: 720px) {
 	html {
 		font-size: 17px;
