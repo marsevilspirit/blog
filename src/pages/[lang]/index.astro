@@ -67,7 +67,11 @@ const authorLinks = AUTHOR_LINKS.map((link) =>
 						{
 							authorLinks.map((link) => (
 								<li>
-									<a href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined}>
+									<a
+										href={link.href}
+										target={link.href.startsWith('http') ? '_blank' : undefined}
+										data-astro-reload={link.label === 'RSS' ? true : undefined}
+									>
 										{link.label}
 									</a>
 								</li>
