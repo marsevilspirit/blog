@@ -3,9 +3,6 @@ dist/
 # generated types
 .astro/
 
-# local brainstorming artifacts
-.superpowers/
-
 # dependencies
 node_modules/
 .pnpm-store/
