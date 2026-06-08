@@ -31,7 +31,6 @@ const { title, description, pubDate, updatedDate, lang, alternates } = Astro.pro
 					<h1>{title}</h1>
 					<div class="post-meta">
 						<FormattedDate date={pubDate} lang={lang} />
-						{lang && <span>{lang === 'zh' ? '中文' : 'English'}</span>}
 						{
 							updatedDate && (
 								<span>

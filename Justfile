@@ -26,6 +26,10 @@ format:
 format-check:
 	pnpm run format:check
 
+# Run unit tests.
+test:
+	pnpm run test
+
 # Run the full local CI check.
 check:
 	pnpm run check

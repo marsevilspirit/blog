@@ -14,8 +14,10 @@
 		"lint": "eslint .",
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
-		"test:i18n": "node scripts/verify-i18n.mjs",
-		"check": "pnpm run lint && pnpm run format:check && pnpm run build && pnpm run test:i18n"
+		"test": "pnpm run test:unit",
+		"test:unit": "vitest run",
+		"test:i18n": "node --test scripts/verify-i18n.mjs",
+		"check": "pnpm run lint && pnpm run format:check && pnpm run test:unit && pnpm run build && pnpm run test:i18n"
 	},
 	"dependencies": {
 		"@astrojs/mdx": "^6.0.2",
@@ -32,6 +34,7 @@
 		"globals": "^17.6.0",
 		"prettier": "^3.8.3",
 		"prettier-plugin-astro": "^0.14.1",
-		"typescript-eslint": "^8.60.1"
+		"typescript-eslint": "^8.60.1",
+		"vitest": "^4.1.8"
 	}
 }
