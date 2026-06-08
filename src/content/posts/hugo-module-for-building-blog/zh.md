@@ -1,7 +1,7 @@
 ---
-title: "使用 Hugo Module 构建博客"
-description: "我认为使用 Hugo modules 是创建个人博客的最佳方式。有些人认为 Hugo modules 更适合依赖较多的网站，但我认为即使只是用 Hugo modules 来管理主题，也是最佳选择。"
-pubDate: "2025-05-14T23:50:10+08:00"
+title: '使用 Hugo Module 构建博客'
+description: '我认为使用 Hugo modules 是创建个人博客的最佳方式。有些人认为 Hugo modules 更适合依赖较多的网站，但我认为即使只是用 Hugo modules 来管理主题，也是最佳选择。'
+pubDate: '2025-05-14T23:50:10+08:00'
 ---
 
 我认为使用 Hugo modules 是创建个人博客的最佳方式。有些人认为 Hugo modules 更适合依赖较多的网站，但我认为即使只是用 Hugo modules 来管理主题，也是最佳选择。

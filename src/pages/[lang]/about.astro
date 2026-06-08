@@ -3,7 +3,15 @@ import { getCollection, render, type CollectionEntry } from 'astro:content';
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
-import { AUTHOR_AVATAR, AUTHOR_LINKS, AUTHOR_NAME, LANGUAGES, SITE, SITE_TITLE, type Lang } from '../../config';
+import {
+	AUTHOR_AVATAR,
+	AUTHOR_LINKS,
+	AUTHOR_NAME,
+	LANGUAGES,
+	SITE,
+	SITE_TITLE,
+	type Lang,
+} from '../../config';
 import { rssPath, sitePageAlternates, validateAbout } from '../../i18n';
 
 export async function getStaticPaths() {

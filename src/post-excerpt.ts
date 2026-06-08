@@ -1,6 +1,10 @@
 const DEFAULT_EXCERPT_LENGTH = 165;
 
-export function postExcerpt(body: string, fallback: string, maxLength = DEFAULT_EXCERPT_LENGTH): string {
+export function postExcerpt(
+	body: string,
+	fallback: string,
+	maxLength = DEFAULT_EXCERPT_LENGTH,
+): string {
 	const excerptSource = markdownParagraphs(body).join(' ');
 	const text = excerptSource || fallback;
 	return truncateAtWord(text, maxLength);

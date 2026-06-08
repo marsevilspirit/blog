@@ -10,7 +10,9 @@ import { SITE_TITLE } from '../config';
 		<meta http-equiv="refresh" content="0;url=/en/" />
 		<link rel="canonical" href={new URL('/en/', Astro.site)} />
 		<title>{SITE_TITLE}</title>
-		<script is:inline>location.replace('/en/')</script>
+		<script is:inline>
+			location.replace('/en/');
+		</script>
 	</head>
 	<body>
 		<p><a href="/en/">Continue to English site</a></p>

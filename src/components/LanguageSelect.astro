@@ -26,11 +26,9 @@ const fallbackLinks = options.filter((candidate) => candidate !== lang);
 		fallbackLinks.length > 0 && (
 			<noscript>
 				<span class="language-fallback">
-					{
-						fallbackLinks.map((candidate) => (
-							<a href={alternates[candidate]}>{languageLabel(candidate)}</a>
-						))
-					}
+					{fallbackLinks.map((candidate) => (
+						<a href={alternates[candidate]}>{languageLabel(candidate)}</a>
+					))}
 				</span>
 			</noscript>
 		)

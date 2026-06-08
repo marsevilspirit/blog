@@ -26,6 +26,14 @@ function regexEscape(value) {
 	return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+function unquoteFrontmatterValue(value) {
+	const quote = value[0];
+	if ((quote === '"' || quote === "'") && value.endsWith(quote)) {
+		return value.slice(1, -1);
+	}
+	return value;
+}
+
 function frontmatter(markdown, path) {
 	const match = markdown.match(/^---\n([\s\S]*?)\n---/);
 	assert.ok(match, `${path} should have YAML frontmatter`);
@@ -34,7 +42,7 @@ function frontmatter(markdown, path) {
 			.split('\n')
 			.map((line) => line.match(/^([A-Za-z0-9_]+):\s*(.*)$/))
 			.filter(Boolean)
-			.map((match) => [match[1], match[2].replace(/^"|"$/g, '')]),
+			.map((match) => [match[1], unquoteFrontmatterValue(match[2])]),
 	);
 }
 
@@ -45,12 +53,18 @@ function markdownData(path, requiredFields) {
 		assert.ok(data[field], `${path} should define ${field}`);
 	}
 	assert.equal(data.slug, undefined, `${path} should not define frontmatter slug`);
-	assert.doesNotMatch(markdown, /!\[[^\]]*]\((?!\/|https?:\/\/)/, `${path} images should use public absolute paths or external URLs`);
+	assert.doesNotMatch(
+		markdown,
+		/!\[[^\]]*]\((?!\/|https?:\/\/)/,
+		`${path} images should use public absolute paths or external URLs`,
+	);
 	return data;
 }
 
 function optionPattern(href, label) {
-	return new RegExp(`<option[^>]+value="${regexEscape(href)}"[^>]*>\\s*${regexEscape(label)}\\s*<\\/option>`);
+	return new RegExp(
+		`<option[^>]+value="${regexEscape(href)}"[^>]*>\\s*${regexEscape(label)}\\s*<\\/option>`,
+	);
 }
 
 function isDraft(data) {
@@ -75,7 +89,9 @@ const configSource = read('src/config.ts');
 assert.match(configSource, /readSiteConfig/);
 assert.doesNotMatch(configSource, /authorBio: '用人类的逻辑写出优雅的代码，这是我活着的意义。'/);
 
-const aboutFiles = readdirSync(file('src/content/about')).filter((name) => name.endsWith('.md')).sort();
+const aboutFiles = readdirSync(file('src/content/about'))
+	.filter((name) => name.endsWith('.md'))
+	.sort();
 assert.deepEqual(aboutFiles, ['en.md', 'zh.md'], 'about should contain exactly en.md and zh.md');
 for (const lang of languages) {
 	markdownData(`src/content/about/${lang}.md`, ['title', 'description']);
@@ -120,12 +136,18 @@ for (const slug of postSlugs) {
 		assertExists(outputPath);
 		const html = read(outputPath);
 		assert.match(html, new RegExp(`<html lang="${lang === 'en' ? 'en' : 'zh-CN'}"`));
-		assert.match(html, new RegExp(`href="https://www\\.marsevilspirit\\.com/${lang}/posts/${regexEscape(slug)}/"`));
+		assert.match(
+			html,
+			new RegExp(`href="https://www\\.marsevilspirit\\.com/${lang}/posts/${regexEscape(slug)}/"`),
+		);
 		assert.match(html, optionPattern(`/${lang}/posts/${slug}/`, languageLabels[lang]));
 
 		for (const candidate of languages) {
 			const candidateEntry = entries.get(candidate);
-			const candidateOption = optionPattern(`/${candidate}/posts/${slug}/`, languageLabels[candidate]);
+			const candidateOption = optionPattern(
+				`/${candidate}/posts/${slug}/`,
+				languageLabels[candidate],
+			);
 			if (candidateEntry && !isDraft(candidateEntry)) {
 				assert.match(html, candidateOption);
 			} else {

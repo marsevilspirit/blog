@@ -63,13 +63,13 @@ Framework preset: Astro
 Build command: pnpm build
 Build output directory: dist
 Root directory: repository root
-Node version: 22.12.0 or newer
+Node version: 26.3.0 or newer
 ```
 
 If Cloudflare uses an older default Node version, set this environment variable:
 
 ```text
-NODE_VERSION=22.12.0
+NODE_VERSION=26.3.0
 ```
 
 ## Documentation

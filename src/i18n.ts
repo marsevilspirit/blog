@@ -135,9 +135,9 @@ export function groupByYear(groups: PostGroup[]): Array<{ year: number; groups: 
 }
 
 export function validateAbout(entries: AboutEntry[]): Record<Lang, AboutEntry> {
-	const about = Object.fromEntries(entries.map((entry) => [aboutIdLang(entry.id), entry])) as Partial<
-		Record<Lang, AboutEntry>
-	>;
+	const about = Object.fromEntries(
+		entries.map((entry) => [aboutIdLang(entry.id), entry]),
+	) as Partial<Record<Lang, AboutEntry>>;
 	for (const lang of LANGUAGES) {
 		if (!about[lang]) {
 			throw new Error(`Missing about/${lang}.md`);

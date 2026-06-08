@@ -1,6 +1,6 @@
 ---
-title: "关于我"
-description: "用人类的逻辑写出优雅的代码，这是我活着的意义。"
+title: '关于我'
+description: '用人类的逻辑写出优雅的代码，这是我活着的意义。'
 ---
 
 你好，我是 **marsevilspirit**。

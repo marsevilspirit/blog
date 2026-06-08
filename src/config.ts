@@ -108,7 +108,10 @@ function readDateOptions(config: Record<string, unknown>): Intl.DateTimeFormatOp
 	};
 }
 
-function dateOption(config: Record<string, unknown>, key: string): 'numeric' | '2-digit' | 'long' | 'short' | 'narrow' {
+function dateOption(
+	config: Record<string, unknown>,
+	key: string,
+): 'numeric' | '2-digit' | 'long' | 'short' | 'narrow' {
 	const value = stringField(config, key);
 	if (!['numeric', '2-digit', 'long', 'short', 'narrow'].includes(value)) {
 		throw new Error(`config TOML ${key} date option is invalid: ${value}`);
@@ -120,7 +123,10 @@ function readStringMap<const Keys extends readonly string[]>(
 	config: Record<string, unknown>,
 	keys: Keys,
 ): Record<Keys[number], string> {
-	return Object.fromEntries(keys.map((key) => [key, stringField(config, key)])) as Record<Keys[number], string>;
+	return Object.fromEntries(keys.map((key) => [key, stringField(config, key)])) as Record<
+		Keys[number],
+		string
+	>;
 }
 
 function assertSupportedLang(value: string): SupportedLang {

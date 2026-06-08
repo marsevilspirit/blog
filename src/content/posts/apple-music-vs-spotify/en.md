@@ -1,7 +1,7 @@
 ---
-title: "Apple Music VS Spotify"
-description: "I have been using Apple Music for two years, and it has always satisfied me. It is a perfect app, and no ot..."
-pubDate: "2025-05-26T01:24:31+08:00"
+title: 'Apple Music VS Spotify'
+description: 'I have been using Apple Music for two years, and it has always satisfied me. It is a perfect app, and no ot...'
+pubDate: '2025-05-26T01:24:31+08:00'
 ---
 
 I have been using Apple Music for two years, and it has always satisfied me. It is a perfect app, and no other music player can reach the high quality of sound that Apple Music has. Apple Music has given me so many memories and wonderful experiences and has accompanied me through countless difficulties and challenges.
@@ -14,4 +14,4 @@ I find both Apple Music and Spotify to be excellent, but I would still choose Ap
 
 Actually, Apple Music also has a plugin that integrates with Neovim, but that plugin needs to run AppleScript, which means it can only be used on a Mac. This fact has made me even more determined to buy a MacBook in the future.
 
-Finally, I want to share my favorite singer, [Shion Tsuji](https://en.wikipedia.org/wiki/Shion_Tsuji). I love every single one of her songs, especially the song '[Pose](https://open.spotify.com/track/1Namp0zU6fbrj8hXO0quIA)' from the album '[OH! MY MISTAKES!](https://en.wikipedia.org/w/index.php?title=OH!_MY_MISTAKES!_(Tsuji_Shion_album)&action=edit&redlink=1)' The chorus has three fast, jumping melodies that really catch my attention, and the clear and beautiful singing at the end just stays with me. The piano chords throughout the song really grab my ears. She is not very famous, but I know her music has become a very important part of my life.
+Finally, I want to share my favorite singer, [Shion Tsuji](https://en.wikipedia.org/wiki/Shion_Tsuji). I love every single one of her songs, especially the song '[Pose](https://open.spotify.com/track/1Namp0zU6fbrj8hXO0quIA)' from the album '[OH! MY MISTAKES!](<https://en.wikipedia.org/w/index.php?title=OH!_MY_MISTAKES!_(Tsuji_Shion_album)&action=edit&redlink=1>)' The chorus has three fast, jumping melodies that really catch my attention, and the clear and beautiful singing at the end just stays with me. The piano chords throughout the song really grab my ears. She is not very famous, but I know her music has become a very important part of my life.

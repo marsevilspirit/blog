@@ -1,7 +1,7 @@
 ---
-title: "2025 Summary"
-description: "Looking back at December 17th, 2025 was a year of \"new beginnings\" and \"tough choices\" for me."
-pubDate: "2025-12-17T02:59:56+08:00"
+title: '2025 Summary'
+description: 'Looking back at December 17th, 2025 was a year of "new beginnings" and "tough choices" for me.'
+pubDate: '2025-12-17T02:59:56+08:00'
 ---
 
 Looking back at December 17th, 2025 was a year of "new beginnings" and "tough choices" for me.

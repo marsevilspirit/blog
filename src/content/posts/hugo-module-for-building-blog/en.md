@@ -1,7 +1,7 @@
 ---
-title: "Hugo Module for Building Blog"
-description: "I think using Hugo modules is the best way to create a personal blog. Some people believe that Hugo modules..."
-pubDate: "2025-05-14T23:50:10+08:00"
+title: 'Hugo Module for Building Blog'
+description: 'I think using Hugo modules is the best way to create a personal blog. Some people believe that Hugo modules...'
+pubDate: '2025-05-14T23:50:10+08:00'
 ---
 
 I think using Hugo modules is the best way to create a personal blog. Some people believe that Hugo modules are better for websites with many dependencies, but I think even just using Hugo modules for the theme is the best choice.

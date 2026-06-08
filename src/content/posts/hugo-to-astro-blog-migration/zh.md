@@ -1,7 +1,7 @@
 ---
-title: "从 Hugo 到 Astro：一次由 AI 完成的博客迁移"
-description: "我曾经把博客从 Hexo 迁移到 Hugo，现在又从 Hugo 迁移到了 Astro。这一次，AI 直接参与了整个迁移过程。"
-pubDate: "2026-06-08T15:20:00+08:00"
+title: '从 Hugo 到 Astro：一次由 AI 完成的博客迁移'
+description: '我曾经把博客从 Hexo 迁移到 Hugo，现在又从 Hugo 迁移到了 Astro。这一次，AI 直接参与了整个迁移过程。'
+pubDate: '2026-06-08T15:20:00+08:00'
 ---
 
 几年前，我把博客从 Hexo 迁移到了 Hugo。当时我觉得 Hugo 很快，Go 也让我很熟悉。尤其是 Hugo Module，它可以把主题和内容分开，让博客只保留文章，主题只保留代码。那种内容和代码分离的感觉，在当时对我来说真的很优雅。

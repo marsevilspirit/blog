@@ -5,7 +5,13 @@ import Footer from '../../../components/Footer.astro';
 import FormattedDate from '../../../components/FormattedDate.astro';
 import Header from '../../../components/Header.astro';
 import { LANGUAGES, SITE, SITE_TITLE, type Lang } from '../../../config';
-import { groupByYear, groupsForLang, postPath, publishedPostGroups, sitePageAlternates } from '../../../i18n';
+import {
+	groupByYear,
+	groupsForLang,
+	postPath,
+	publishedPostGroups,
+	sitePageAlternates,
+} from '../../../i18n';
 import { postExcerpt } from '../../../post-excerpt';
 
 export function getStaticPaths() {
@@ -22,7 +28,9 @@ interface Props {
 const { lang } = Astro.props;
 const copy = SITE[lang];
 const alternates = sitePageAlternates('posts');
-const yearGroups = groupByYear(groupsForLang(publishedPostGroups(await getCollection('posts')), lang));
+const yearGroups = groupByYear(
+	groupsForLang(publishedPostGroups(await getCollection('posts')), lang),
+);
 ---
 
 <!doctype html>
@@ -46,18 +54,16 @@ const yearGroups = groupByYear(groupsForLang(publishedPostGroups(await getCollec
 					<section aria-labelledby={`year-${year}`}>
 						<h2 id={`year-${year}`}>{year}</h2>
 						<ul class="post-list">
-							{
-								groups.map((group) => {
-									const post = group.entries[lang]!;
-									return (
-										<li>
-											<a href={postPath(lang, group.slug)}>{post.data.title}</a>
-											<FormattedDate date={group.date} lang={lang} />
-											<p>{postExcerpt(post.body, post.data.description)}</p>
-										</li>
-									);
-								})
-							}
+							{groups.map((group) => {
+								const post = group.entries[lang]!;
+								return (
+									<li>
+										<a href={postPath(lang, group.slug)}>{post.data.title}</a>
+										<FormattedDate date={group.date} lang={lang} />
+										<p>{postExcerpt(post.body, post.data.description)}</p>
+									</li>
+								);
+							})}
 						</ul>
 					</section>
 				))

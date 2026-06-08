@@ -4,8 +4,23 @@ import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
-import { AUTHOR_AVATAR, AUTHOR_LINKS, AUTHOR_NAME, LANGUAGES, SITE, SITE_TITLE, type Lang } from '../../config';
-import { groupsForLang, postPath, postsPath, publishedPostGroups, rssPath, sitePageAlternates } from '../../i18n';
+import {
+	AUTHOR_AVATAR,
+	AUTHOR_LINKS,
+	AUTHOR_NAME,
+	LANGUAGES,
+	SITE,
+	SITE_TITLE,
+	type Lang,
+} from '../../config';
+import {
+	groupsForLang,
+	postPath,
+	postsPath,
+	publishedPostGroups,
+	rssPath,
+	sitePageAlternates,
+} from '../../i18n';
 import { postExcerpt } from '../../post-excerpt';
 
 export function getStaticPaths() {
@@ -31,7 +46,12 @@ const authorLinks = AUTHOR_LINKS.map((link) =>
 <!doctype html>
 <html lang={copy.htmlLang}>
 	<head>
-		<BaseHead title={SITE_TITLE} description={copy.description} lang={lang} alternates={alternates} />
+		<BaseHead
+			title={SITE_TITLE}
+			description={copy.description}
+			lang={lang}
+			alternates={alternates}
+		/>
 	</head>
 	<body>
 		<Header lang={lang} alternates={alternates} />

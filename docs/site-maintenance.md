@@ -69,8 +69,8 @@ src/content/posts/my-new-post/
 
 ```md
 ---
-title: "My New Post"
-description: "Short description for list, meta, and RSS."
+title: 'My New Post'
+description: 'Short description for list, meta, and RSS.'
 pubDate: 2026-06-08T12:00:00+08:00
 ---
 
@@ -119,8 +119,8 @@ About 必须同时有英文和中文两个文件。标题和描述按语言独�
 
 ```md
 ---
-title: "About Me"
-description: "About page description."
+title: 'About Me'
+description: 'About page description.'
 ---
 
 About body...

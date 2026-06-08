@@ -1,7 +1,7 @@
 ---
-title: "Apple Music 对比 Spotify"
-description: "我已经使用 Apple Music 两年了，它一直让我很满意。它是一个完美的应用程序，没有其他音乐播放器能达到 Apple Music 那样的高音质。Apple Music 给了我那么多美好的回忆和经历，陪伴我度过..."
-pubDate: "2025-05-26T01:24:31+08:00"
+title: 'Apple Music 对比 Spotify'
+description: '我已经使用 Apple Music 两年了，它一直让我很满意。它是一个完美的应用程序，没有其他音乐播放器能达到 Apple Music 那样的高音质。Apple Music 给了我那么多美好的回忆和经历，陪伴我度过...'
+pubDate: '2025-05-26T01:24:31+08:00'
 ---
 
 我已经使用 Apple Music 两年了，它一直让我很满意。它是一个完美的应用程序，没有其他音乐播放器能达到 Apple Music 那样的高音质。Apple Music 给了我那么多美好的回忆和经历，陪伴我度过了无数的困难和挑战。
@@ -14,4 +14,4 @@ pubDate: "2025-05-26T01:24:31+08:00"
 
 实际上，Apple Music 也有一个与 Neovim 集成的插件，但那个插件需要运行 AppleScript，这意味着它只能在 Mac 上使用。这个事实让我更加坚定了将来买 MacBook 的决心。
 
-最后，我想分享一下我最喜欢的歌手，[Shion Tsuji](https://en.wikipedia.org/wiki/Shion_Tsuji)。我喜欢她的每一首歌，特别是专辑 '[OH! MY MISTAKES!](https://en.wikipedia.org/w/index.php?title=OH!_MY_MISTAKES!_(Tsuji_Shion_album)&action=edit&redlink=1)' 中的 '[Pose](https://open.spotify.com/track/1Namp0zU6fbrj8hXO0quIA)'。副歌有三段快速跳跃的旋律，非常抓耳，结尾清晰优美的歌声让我久久不能忘怀。整首歌的钢琴和弦真的很抓我的耳朵。她不太出名，但我知道她的音乐已经成为我生活中非常重要的一部分。
+最后，我想分享一下我最喜欢的歌手，[Shion Tsuji](https://en.wikipedia.org/wiki/Shion_Tsuji)。我喜欢她的每一首歌，特别是专辑 '[OH! MY MISTAKES!](<https://en.wikipedia.org/w/index.php?title=OH!_MY_MISTAKES!_(Tsuji_Shion_album)&action=edit&redlink=1>)' 中的 '[Pose](https://open.spotify.com/track/1Namp0zU6fbrj8hXO0quIA)'。副歌有三段快速跳跃的旋律，非常抓耳，结尾清晰优美的歌声让我久久不能忘怀。整首歌的钢琴和弦真的很抓我的耳朵。她不太出名，但我知道她的音乐已经成为我生活中非常重要的一部分。

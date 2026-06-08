@@ -1,7 +1,7 @@
 ---
-title: "From Hugo to Astro: A Blog Migration Built with AI"
-description: "I once migrated my blog from Hexo to Hugo. Now I have moved it from Hugo to Astro, and this time AI was part of the whole process."
-pubDate: "2026-06-08T15:20:00+08:00"
+title: 'From Hugo to Astro: A Blog Migration Built with AI'
+description: 'I once migrated my blog from Hexo to Hugo. Now I have moved it from Hugo to Astro, and this time AI was part of the whole process.'
+pubDate: '2026-06-08T15:20:00+08:00'
 ---
 
 A few years ago, I migrated my blog from Hexo to Hugo. At that time, Hugo felt extremely fast, and Go felt familiar to me. Hugo Module was especially attractive because it allowed me to separate the theme from the content. The blog could contain only articles, and the theme could contain only code. That separation between content and code felt very elegant to me.
