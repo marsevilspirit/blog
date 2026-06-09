@@ -18,11 +18,7 @@ const links = AUTHOR_LINKS.map((link) =>
 	<nav aria-label={SITE[lang].footer.authorLinks}>
 		{
 			links.map((link) => (
-				<a
-					href={link.href}
-					target={link.href.startsWith('http') ? '_blank' : undefined}
-					data-astro-reload={link.label === 'RSS' ? true : undefined}
-				>
+				<a href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined}>
 					{link.label}
 				</a>
 			))

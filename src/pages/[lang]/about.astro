@@ -13,7 +13,6 @@ import {
 	type Lang,
 } from '../../config';
 import { rssPath, sitePageAlternates, validateAbout } from '../../i18n';
-import { mainContentTransition } from '../../transitions';
 
 export async function getStaticPaths() {
 	const about = validateAbout(await getCollection('about'));
@@ -49,7 +48,7 @@ const authorLinks = AUTHOR_LINKS.map((link) =>
 	</head>
 	<body>
 		<Header lang={lang} alternates={alternates} />
-		<main transition:name="main" transition:animate={mainContentTransition}>
+		<main>
 			<section class="author-profile">
 				<img class="author-avatar" src={AUTHOR_AVATAR} alt={AUTHOR_NAME} />
 				<div>
@@ -60,11 +59,7 @@ const authorLinks = AUTHOR_LINKS.map((link) =>
 						{
 							authorLinks.map((link) => (
 								<li>
-									<a
-										href={link.href}
-										target={link.href.startsWith('http') ? '_blank' : undefined}
-										data-astro-reload={link.label === 'RSS' ? true : undefined}
-									>
+									<a href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined}>
 										{link.label}
 									</a>
 								</li>

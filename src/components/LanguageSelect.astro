@@ -36,20 +36,14 @@ const fallbackLinks = options.filter((candidate) => candidate !== lang);
 </div>
 
 <script>
-	import { navigate } from 'astro:transitions/client';
-
 	document.addEventListener('change', (event) => {
 		const target = event.target;
 		if (!(target instanceof HTMLSelectElement) || !target.closest('.language-select')) {
 			return;
 		}
-
-		const href = target.value;
-		if (!href || href === window.location.pathname) {
-			return;
+		if (target.value && target.value !== window.location.pathname) {
+			window.location.href = target.value;
 		}
-
-		navigate(href);
 	});
 </script>
 
