@@ -206,17 +206,7 @@ time,
 }
 
 .author-profile {
-	display: flex;
-	gap: 1.25rem;
-	align-items: flex-start;
 	margin-bottom: 2rem;
-}
-
-.author-avatar {
-	width: 5rem;
-	height: 5rem;
-	border-radius: 6px;
-	object-fit: cover;
 }
 
 .inline-links {
@@ -246,13 +236,5 @@ time,
 
 	main {
 		padding-top: 1.5rem;
-	}
-
-	.author-profile {
-		display: block;
-	}
-
-	.author-avatar {
-		margin-bottom: 1rem;
 	}
 }

@@ -26,7 +26,6 @@ interface SiteConfig {
 	languages: readonly SupportedLang[];
 	author: {
 		name: string;
-		avatar: string;
 		links: Array<{ label: string; href: string }>;
 	};
 	site: Record<SupportedLang, SiteLanguageConfig>;
@@ -80,7 +79,6 @@ function readAuthor(author: Record<string, unknown>): SiteConfig['author'] {
 
 	return {
 		name: stringField(author, 'name'),
-		avatar: stringField(author, 'avatar'),
 		links,
 	};
 }
@@ -176,5 +174,4 @@ export type Lang = SiteConfig['languages'][number];
 
 export const SITE = siteConfig.site;
 export const AUTHOR_NAME = siteConfig.author.name;
-export const AUTHOR_AVATAR = siteConfig.author.avatar;
 export const AUTHOR_LINKS = siteConfig.author.links;

@@ -52,16 +52,9 @@ languages = ["en", "zh"]
 ```toml
 [author]
 name = "marsevilspirit"
-avatar = "/img/author.png"
 ```
 
-`name` 会显示在首页 Profile、About Profile 和头像 alt 上。
-
-`avatar` 必须使用 public 绝对路径，例如 `/img/author.png`。对应文件在：
-
-```text
-public/img/author.png
-```
+`name` 会显示在首页 Profile 和 About Profile 中。
 
 ### author.links
 

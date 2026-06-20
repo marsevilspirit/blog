@@ -3,15 +3,7 @@ import { getCollection, render, type CollectionEntry } from 'astro:content';
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
-import {
-	AUTHOR_AVATAR,
-	AUTHOR_LINKS,
-	AUTHOR_NAME,
-	LANGUAGES,
-	SITE,
-	SITE_TITLE,
-	type Lang,
-} from '../../config';
+import { AUTHOR_LINKS, AUTHOR_NAME, LANGUAGES, SITE, SITE_TITLE, type Lang } from '../../config';
 import { rssPath, sitePageAlternates, validateAbout } from '../../i18n';
 
 export async function getStaticPaths() {
@@ -50,7 +42,6 @@ const authorLinks = AUTHOR_LINKS.map((link) =>
 		<Header lang={lang} alternates={alternates} />
 		<main>
 			<section class="author-profile">
-				<img class="author-avatar" src={AUTHOR_AVATAR} alt={AUTHOR_NAME} />
 				<div>
 					<h1>{entry.data.title}</h1>
 					<p class="muted">{AUTHOR_NAME} · {copy.authorHeadline}</p>

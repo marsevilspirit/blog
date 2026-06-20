@@ -4,7 +4,6 @@ languages = ["en", "zh"]
 
 [author]
 name = "marsevilspirit"
-avatar = "/img/author.png"
 
 [[author.links]]
 label = "GitHub"

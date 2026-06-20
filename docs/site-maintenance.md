@@ -142,7 +142,6 @@ src/pages/[lang]/index.astro
 # config/site.toml
 [author]
 name = "marsevilspirit"
-avatar = "/img/author.png"
 
 # config/en.toml
 authorHeadline = "software engineer"
@@ -152,14 +151,6 @@ authorBio = "..."
 authorHeadline = "软件工程师"
 authorBio = "..."
 ```
-
-作者头像在：
-
-```text
-public/img/author.png
-```
-
-如果只换头像，保持文件名不变最省事。要改路径，则同步修改 `config/site.toml` 里的 `author.avatar`。
 
 首页最近文章数量目前是 5 篇，在 `src/pages/[lang]/index.astro` 里改 `slice(0, 5)`。
 
