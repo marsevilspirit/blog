@@ -215,6 +215,23 @@ test('built post pages match published translations and language alternates', ()
 				new RegExp(`href="https://www\\.marsevilspirit\\.com/${lang}/posts/${regexEscape(slug)}/"`),
 			);
 			assert.match(html, optionPattern(`/${lang}/posts/${slug}/`, languageLabels[lang]));
+			assert.match(html, /<meta property="og:type" content="article">/);
+			assert.match(
+				html,
+				new RegExp(
+					`<meta property="article:published_time" content="${regexEscape(new Date(entry.pubDate).toISOString())}">`,
+				),
+			);
+			if (entry.updatedDate) {
+				assert.match(
+					html,
+					new RegExp(
+						`<meta property="article:modified_time" content="${regexEscape(new Date(entry.updatedDate).toISOString())}">`,
+					),
+				);
+			} else {
+				assert.doesNotMatch(html, /<meta property="article:modified_time"/);
+			}
 			assertPostMetaDoesNotShowLanguage(html, lang, outputPath);
 			assertLanguageOptions(html, slug, entries);
 		}
@@ -233,6 +250,12 @@ test('required built routes exist and removed root routes are absent', () => {
 	assertExists('dist/zh/rss.xml');
 	assertExists('dist/404.html');
 
+	assertMissing('public/site.webmanifest');
+	assertMissing('public/android-chrome-192x192.png');
+	assertMissing('public/android-chrome-512x512.png');
+	assertMissing('dist/site.webmanifest');
+	assertMissing('dist/android-chrome-192x192.png');
+	assertMissing('dist/android-chrome-512x512.png');
 	assertMissing('dist/blog/index.html');
 	assertMissing('dist/about/index.html');
 	assertMissing('dist/rss.xml');
@@ -247,6 +270,8 @@ test('root page redirects to the English home page', () => {
 test('localized home pages render expected copy and do not leak post titles from another language', () => {
 	const enHome = read('dist/en/index.html');
 	assert.match(enHome, /<html lang="en"/);
+	assert.match(enHome, /<meta property="og:type" content="website">/);
+	assert.doesNotMatch(enHome, /<meta property="article:/);
 	assert.match(enHome, /software engineer/);
 	assert.match(enHome, /Recent posts/);
 	assert.match(enHome, /The story began with a trip to Japan/);

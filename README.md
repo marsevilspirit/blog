@@ -63,14 +63,11 @@ Framework preset: Astro
 Build command: pnpm build
 Build output directory: dist
 Root directory: repository root
-Node version: 26.3.0 or newer
+Node version: read from .node-version (currently 26.3.0)
 ```
 
-If Cloudflare uses an older default Node version, set this environment variable:
-
-```text
-NODE_VERSION=26.3.0
-```
+Cloudflare Pages, GitHub Actions, and local version managers all read the pinned
+Node.js version from `.node-version`.
 
 ## Documentation
 

@@ -23,7 +23,6 @@ public/
   img/               作者头像等公共图片
   posts/             文章图片，按文章 slug 放
   robots.txt         爬虫配置
-  site.webmanifest   PWA/站点 manifest
 scripts/
   verify-i18n.mjs    自定义 i18n 结构校验
 config/
