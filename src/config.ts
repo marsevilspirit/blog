@@ -24,6 +24,7 @@ interface SiteConfig {
 	title: string;
 	defaultLang: SupportedLang;
 	languages: readonly SupportedLang[];
+	timeZone: string;
 	author: {
 		name: string;
 		links: Array<{ label: string; href: string }>;
@@ -57,6 +58,7 @@ function parseSiteConfig(): SiteConfig {
 		title: stringField(config, 'title'),
 		defaultLang,
 		languages,
+		timeZone: timeZoneField(config, 'timeZone'),
 		author: readAuthor(record(config.author, 'author')),
 		site: Object.fromEntries(
 			languages.map((lang) => [lang, readLanguageConfig(readTomlFile(`config/${lang}.toml`))]),
@@ -117,6 +119,16 @@ function dateOption(
 	return value as 'numeric' | '2-digit' | 'long' | 'short' | 'narrow';
 }
 
+function timeZoneField(config: Record<string, unknown>, key: string): string {
+	const value = stringField(config, key);
+	try {
+		new Intl.DateTimeFormat('en', { timeZone: value });
+	} catch {
+		throw new Error(`config TOML ${key} must be a valid IANA time zone: ${value}`);
+	}
+	return value;
+}
+
 function readStringMap<const Keys extends readonly string[]>(
 	config: Record<string, unknown>,
 	keys: Keys,
@@ -169,6 +181,7 @@ const siteConfig = readSiteConfig();
 export const SITE_TITLE = siteConfig.title;
 export const DEFAULT_LANG = siteConfig.defaultLang;
 export const LANGUAGES = siteConfig.languages;
+export const SITE_TIME_ZONE = siteConfig.timeZone;
 
 export type Lang = SiteConfig['languages'][number];
 

@@ -45,6 +45,14 @@ languages = ["en", "zh"]
 
 如果以后要新增语言，不能只改这里；还需要增加 `config/<lang>.toml`、内容结构、路由和校验逻辑。
 
+### timeZone
+
+站点用于显示文章日期和按年份分组的 IANA 时区。构建环境无论使用什么系统时区，页面都会按这里的时区解释日期：
+
+```toml
+timeZone = "Asia/Shanghai"
+```
+
 ### author
 
 作者信息：
@@ -248,6 +256,7 @@ src/config.ts
 - `config/site.toml` 必须存在
 - `languages` 只能包含当前支持的语言
 - `defaultLang` 必须在 `languages` 里
+- `timeZone` 必须是有效的 IANA 时区
 - `config/<lang>.toml` 必须存在
 - 必填字段必须是非空字符串
 - 日期选项必须是允许值

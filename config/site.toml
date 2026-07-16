@@ -1,6 +1,7 @@
 title = "marsevilspirit's blog"
 defaultLang = "en"
 languages = ["en", "zh"]
+timeZone = "Asia/Shanghai"
 
 [author]
 name = "marsevilspirit"

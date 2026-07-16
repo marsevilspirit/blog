@@ -203,7 +203,7 @@ href = "/rss.xml"
 
 ## 修改站点级文案和 SEO
 
-站点标题、作者、语言列表在：
+站点标题、作者、语言列表和日期时区在：
 
 ```text
 config/site.toml
@@ -292,7 +292,7 @@ src/i18n.ts
 - 过滤草稿
 - 生成 `/en/posts/<slug>/` 和 `/zh/posts/<slug>/`
 - 生成 hreflang alternate
-- 按语言格式化日期
+- 按站点时区和语言格式化日期与年份分组
 
 内容 schema 在：
 

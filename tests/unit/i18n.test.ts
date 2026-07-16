@@ -3,6 +3,7 @@ import type { PostEntry } from '../../src/i18n';
 import {
 	buildPostGroups,
 	defaultAlternate,
+	formatDate,
 	groupAlternates,
 	groupByYear,
 	groupsForLang,
@@ -78,9 +79,9 @@ describe('i18n routing helpers', () => {
 
 	it('groups posts by language and year', () => {
 		const groups = buildPostGroups([
-			postEntry('current/en', '2026-01-01T00:00:00.000Z'),
-			postEntry('current/zh', '2026-01-01T00:00:00.000Z'),
-			postEntry('previous/en', '2025-01-01T00:00:00.000Z'),
+			postEntry('current/en', '2026-01-01T00:00:00+08:00'),
+			postEntry('current/zh', '2026-01-01T00:00:00+08:00'),
+			postEntry('previous/en', '2025-01-01T00:00:00+08:00'),
 		]);
 
 		expect(groupsForLang(groups, 'zh').map((group) => group.slug)).toEqual(['current']);
@@ -88,6 +89,12 @@ describe('i18n routing helpers', () => {
 			{ year: 2026, groups: [groups[0]] },
 			{ year: 2025, groups: [groups[1]] },
 		]);
+	});
+
+	it('formats dates in the configured site time zone', () => {
+		const date = new Date('2026-07-16T00:00:00+08:00');
+		expect(formatDate(date, 'en')).toBe('16 July 2026');
+		expect(formatDate(date, 'zh')).toBe('2026年7月16日');
 	});
 
 	it('returns configured page alternates and language labels', () => {
