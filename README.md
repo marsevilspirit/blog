@@ -63,7 +63,7 @@ Framework preset: Astro
 Build command: pnpm build
 Build output directory: dist
 Root directory: repository root
-Node version: read from .node-version (currently 26.3.0)
+Node version: read from .node-version (currently 26.5.0)
 ```
 
 Cloudflare Pages, GitHub Actions, and local version managers all read the pinned
