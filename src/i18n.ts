@@ -1,5 +1,5 @@
 import type { CollectionEntry } from 'astro:content';
-import { DEFAULT_LANG, LANGUAGES, SITE, type Lang } from './config';
+import { DEFAULT_LANG, LANGUAGES, SITE, SITE_TIME_ZONE, type Lang } from './config';
 
 export type PostEntry = CollectionEntry<'posts'>;
 export type AboutEntry = CollectionEntry<'about'>;
@@ -10,6 +10,11 @@ export interface PostGroup {
 	date: Date;
 	entries: Partial<Record<Lang, PostEntry>>;
 }
+
+const SITE_YEAR_FORMATTER = new Intl.DateTimeFormat('en', {
+	year: 'numeric',
+	timeZone: SITE_TIME_ZONE,
+});
 
 export function isLang(value: string): value is Lang {
 	return LANGUAGES.includes(value as Lang);
@@ -126,7 +131,7 @@ export function sitePageAlternates(page: 'home' | 'posts' | 'about'): Record<Lan
 export function groupByYear(groups: PostGroup[]): Array<{ year: number; groups: PostGroup[] }> {
 	const byYear = new Map<number, PostGroup[]>();
 	for (const group of groups) {
-		const year = group.date.getFullYear();
+		const year = Number(SITE_YEAR_FORMATTER.format(group.date));
 		byYear.set(year, [...(byYear.get(year) ?? []), group]);
 	}
 	return [...byYear.entries()]
@@ -147,7 +152,10 @@ export function validateAbout(entries: AboutEntry[]): Record<Lang, AboutEntry> {
 }
 
 export function formatDate(date: Date, lang: Lang): string {
-	return date.toLocaleDateString(SITE[lang].dateLocale, SITE[lang].dateOptions);
+	return date.toLocaleDateString(SITE[lang].dateLocale, {
+		...SITE[lang].dateOptions,
+		timeZone: SITE_TIME_ZONE,
+	});
 }
 
 export function defaultAlternate(alternates: Alternates): string | undefined {

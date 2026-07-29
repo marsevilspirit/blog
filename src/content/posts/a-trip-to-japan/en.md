@@ -1,6 +1,6 @@
 ---
 title: 'A Trip to Japan'
-description: 'On January 7, 2025, I traveled to Japan. I should have documented this experience sooner, but upon my retur...'
+description: 'A ten-day journey through Osaka, Kyoto, and Tokyo in January 2025, with memories of food, landmarks, and unexpected discoveries.'
 pubDate: '2025-05-12T19:08:19+08:00'
 ---
 

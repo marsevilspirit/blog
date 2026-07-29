@@ -2,7 +2,10 @@
 title: '使用 Hugo Module 构建博客'
 description: '我认为使用 Hugo modules 是创建个人博客的最佳方式。有些人认为 Hugo modules 更适合依赖较多的网站，但我认为即使只是用 Hugo modules 来管理主题，也是最佳选择。'
 pubDate: '2025-05-14T23:50:10+08:00'
+updatedDate: '2026-07-16T00:00:00+08:00'
 ---
+
+> **历史说明（2026 年 7 月 16 日）：** 本文记录的是我在 2025 年使用 Hugo 与 Congo 构建博客时的看法。这个博客后来已经迁移到 Astro，详见[从 Hugo 到 Astro：一次由 AI 完成的博客迁移](/zh/posts/hugo-to-astro-blog-migration/)。
 
 我认为使用 Hugo modules 是创建个人博客的最佳方式。有些人认为 Hugo modules 更适合依赖较多的网站，但我认为即使只是用 Hugo modules 来管理主题，也是最佳选择。
 

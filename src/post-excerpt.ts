@@ -14,7 +14,13 @@ function markdownParagraphs(body: string): string[] {
 	return body
 		.split(/\n\s*\n/)
 		.map((paragraph) => paragraph.trim())
-		.filter((paragraph) => paragraph && !paragraph.startsWith('![') && !paragraph.startsWith('#'))
+		.filter(
+			(paragraph) =>
+				paragraph &&
+				!paragraph.startsWith('![') &&
+				!paragraph.startsWith('#') &&
+				!paragraph.startsWith('>'),
+		)
 		.map(cleanMarkdown)
 		.filter(Boolean);
 }

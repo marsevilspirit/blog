@@ -21,6 +21,17 @@ describe('postExcerpt', () => {
 		expect(postExcerpt(body, 'Fallback description')).toBe('Fallback description');
 	});
 
+	it('skips blockquotes when building an excerpt', () => {
+		const body = [
+			'> Historical note: this post documents an older setup.',
+			'The article prose should be used for cards and feeds.',
+		].join('\n\n');
+
+		expect(postExcerpt(body, 'Fallback description')).toBe(
+			'The article prose should be used for cards and feeds.',
+		);
+	});
+
 	it('truncates at a word boundary when one is close to the requested length', () => {
 		const body = 'Alpha beta gamma delta epsilon';
 

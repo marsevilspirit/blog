@@ -20,7 +20,15 @@ const { title, description, pubDate, updatedDate, lang, alternates } = Astro.pro
 
 <html lang={lang === 'en' ? 'en' : 'zh-CN'}>
 	<head>
-		<BaseHead title={title} description={description} lang={lang} alternates={alternates} />
+		<BaseHead
+			title={title}
+			description={description}
+			lang={lang}
+			alternates={alternates}
+			ogType="article"
+			publishedTime={pubDate}
+			modifiedTime={updatedDate}
+		/>
 	</head>
 
 	<body>

@@ -1,8 +1,11 @@
 ---
 title: 'Hugo Module for Building Blog'
-description: 'I think using Hugo modules is the best way to create a personal blog. Some people believe that Hugo modules...'
+description: "Why Hugo Modules once felt like the ideal way to separate a personal blog's content from its theme and dependencies."
 pubDate: '2025-05-14T23:50:10+08:00'
+updatedDate: '2026-07-16T00:00:00+08:00'
 ---
+
+> **Historical note (July 16, 2026):** This post reflects how I built the blog in 2025. The site has since moved from Hugo and Congo to Astro; see [From Hugo to Astro: A Blog Migration Built with AI](/en/posts/hugo-to-astro-blog-migration/).
 
 I think using Hugo modules is the best way to create a personal blog. Some people believe that Hugo modules are better for websites with many dependencies, but I think even just using Hugo modules for the theme is the best choice.
 

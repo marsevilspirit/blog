@@ -1,6 +1,6 @@
 ---
 title: 'Apple Music 对比 Spotify'
-description: '我已经使用 Apple Music 两年了，它一直让我很满意。它是一个完美的应用程序，没有其他音乐播放器能达到 Apple Music 那样的高音质。Apple Music 给了我那么多美好的回忆和经历，陪伴我度过...'
+description: '对比 Apple Music 与 Spotify 的音质、使用体验和 Neovim 集成，以及我最终为什么仍然更偏爱 Apple Music。'
 pubDate: '2025-05-26T01:24:31+08:00'
 ---
 

@@ -23,7 +23,6 @@ public/
   img/               作者头像等公共图片
   posts/             文章图片，按文章 slug 放
   robots.txt         爬虫配置
-  site.webmanifest   PWA/站点 manifest
 scripts/
   verify-i18n.mjs    自定义 i18n 结构校验
 config/
@@ -204,7 +203,7 @@ href = "/rss.xml"
 
 ## 修改站点级文案和 SEO
 
-站点标题、作者、语言列表在：
+站点标题、作者、语言列表和日期时区在：
 
 ```text
 config/site.toml
@@ -293,7 +292,7 @@ src/i18n.ts
 - 过滤草稿
 - 生成 `/en/posts/<slug>/` 和 `/zh/posts/<slug>/`
 - 生成 hreflang alternate
-- 按语言格式化日期
+- 按站点时区和语言格式化日期与年份分组
 
 内容 schema 在：
 
