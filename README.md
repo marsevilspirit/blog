@@ -14,8 +14,7 @@ docs/
   configuration.md
   site-maintenance.md
 public/
-  img/
-  posts/
+  # Favicons and other unprocessed assets
 src/
   content/
     about/
@@ -25,6 +24,7 @@ src/
       <slug>/
         en.md
         zh.md
+        images/
   pages/
     [lang]/
 ```

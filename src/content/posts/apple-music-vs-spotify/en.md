@@ -1,6 +1,6 @@
 ---
 title: 'Apple Music VS Spotify'
-description: 'Why I still prefer Apple Music for sound and familiarity, while keeping Spotify for its excellent Neovim integration.'
+description: 'Trying Spotify through a Neovim plugin led me to compare it with Apple Music, my music companion for the past two years.'
 pubDate: '2025-05-26T01:24:31+08:00'
 ---
 

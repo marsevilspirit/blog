@@ -1,6 +1,6 @@
 ---
 title: '从 Hugo 到 Astro：一次由 AI 完成的博客迁移'
-description: '我曾经把博客从 Hexo 迁移到 Hugo，现在又从 Hugo 迁移到了 Astro。这一次，AI 直接参与了整个迁移过程。'
+description: '借助 AI 将博客从 Hugo 迁移到 Astro，搭建双语路由与 RSS，重新掌握博客的结构。'
 pubDate: '2026-06-08T15:20:00+08:00'
 ---
 

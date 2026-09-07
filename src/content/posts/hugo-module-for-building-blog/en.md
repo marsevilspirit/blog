@@ -1,6 +1,6 @@
 ---
 title: 'Hugo Module for Building Blog'
-description: "Why Hugo Modules once felt like the ideal way to separate a personal blog's content from its theme and dependencies."
+description: 'After moving from Hexo to Hugo, I used modules to separate posts from themes and make theme version management simpler.'
 pubDate: '2025-05-14T23:50:10+08:00'
 updatedDate: '2026-07-16T00:00:00+08:00'
 ---

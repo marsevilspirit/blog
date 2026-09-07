@@ -1,7 +1,7 @@
 import { getCollection } from 'astro:content';
 import rss from '@astrojs/rss';
 import { LANGUAGES, SITE, SITE_TITLE } from '../../config';
-import { groupsForLang, postPath, publishedPostGroups } from '../../i18n';
+import { groupsForLang, homePath, postPath, publishedPostGroups } from '../../i18n';
 
 export function getStaticPaths() {
 	return LANGUAGES.map((lang) => ({
@@ -16,7 +16,7 @@ export async function GET(context) {
 	return rss({
 		title: SITE_TITLE,
 		description: SITE[lang].description,
-		site: context.site,
+		site: new URL(homePath(lang), context.site),
 		items: groups.map((group) => {
 			const post = group.entries[lang];
 			return {

@@ -97,6 +97,22 @@ describe('i18n routing helpers', () => {
 		expect(formatDate(date, 'zh')).toBe('2026年7月16日');
 	});
 
+	it('formats dates and groups years in the site time zone', () => {
+		const groups = buildPostGroups([
+			postEntry('new-year/en', '2025-12-31T16:00:00.000Z'),
+			postEntry('year-end/en', '2025-12-31T15:59:59.000Z'),
+		]);
+
+		expect(formatDate(new Date('2025-05-26T01:24:31+08:00'), 'en')).toBe('26 May 2025');
+		expect(formatDate(new Date('2025-05-26T01:24:31+08:00'), 'zh')).toBe('2025年5月26日');
+		expect(formatDate(groups[0].date, 'en')).toBe('1 January 2026');
+		expect(formatDate(groups[1].date, 'zh')).toBe('2025年12月31日');
+		expect(groupByYear(groups)).toEqual([
+			{ year: 2026, groups: [groups[0]] },
+			{ year: 2025, groups: [groups[1]] },
+		]);
+	});
+
 	it('returns configured page alternates and language labels', () => {
 		expect(sitePageAlternates('about')).toEqual({
 			en: '/en/about/',

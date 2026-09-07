@@ -1,6 +1,6 @@
 ---
 title: 'Apple Music 对比 Spotify'
-description: '对比 Apple Music 与 Spotify 的音质、使用体验和 Neovim 集成，以及我最终为什么仍然更偏爱 Apple Music。'
+description: '因 Neovim 尝试 Spotify，聊聊我为何仍偏爱 Apple Music。'
 pubDate: '2025-05-26T01:24:31+08:00'
 ---
 

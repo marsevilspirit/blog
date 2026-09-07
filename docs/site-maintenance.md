@@ -14,6 +14,7 @@ src/
   content/           Markdown 内容集合
     about/           About 页面内容，固定 en.md / zh.md
     posts/           文章内容，按 slug 分组
+      <slug>/images/  文章原图，由 Astro 构建时优化
   layouts/           文章页布局
   pages/             Astro 路由页面
   styles/            全站样式
@@ -21,7 +22,6 @@ src/
   i18n.ts            i18n 路由、内容分组、日期、alternate 逻辑
 public/
   img/               作者头像等公共图片
-  posts/             文章图片，按文章 slug 放
   robots.txt         爬虫配置
 scripts/
   verify-i18n.mjs    自定义 i18n 结构校验
@@ -69,7 +69,7 @@ src/content/posts/my-new-post/
 ```md
 ---
 title: 'My New Post'
-description: 'Short description for list, meta, and RSS.'
+description: 'A complete, concise sentence for lists, metadata, and RSS.'
 pubDate: 2026-06-08T12:00:00+08:00
 ---
 
@@ -85,25 +85,27 @@ updatedDate: 2026-06-09T12:00:00+08:00
 
 `draft: true` 的文章不会发布，也不会进入 RSS。默认没有 `draft` 时就是发布状态。
 
-首页和文章列表里的摘要会优先从正文前几个自然段生成，长度约 165 个字符，用来接近两行展示。`description` 仍然需要填写，它用于 SEO、RSS，以及正文为空时的兜底摘要。
+首页、文章列表、SEO 和 RSS 统一使用 `description`，不再自动截取正文。请写成完整的一句话，中文不超过 60 字符、英文不超过 160 字符，不使用截断省略号。
+
+文章日期显示和年份分组统一使用 `config/site.toml` 中的 `timeZone`（当前为 `Asia/Shanghai`），不受本地或 CI 构建机器的时区影响。
 
 ## 文章图片
 
-只允许使用 `public` 里的绝对路径图片或外链图片。
-
-推荐按文章 slug 放图片：
+文章原图放在文章目录下的 `images/` 中，中英文共用：
 
 ```text
-public/posts/my-new-post/cover.jpg
+src/content/posts/my-new-post/images/cover.jpg
 ```
 
 Markdown 里这样引用：
 
 ```md
-![Cover](/posts/my-new-post/cover.jpg)
+![Cover](./images/cover.jpg)
 ```
 
-不要写相对路径，例如 `./cover.jpg` 或 `cover.jpg`。
+Astro 在构建时生成 WebP，提供 378、756、1512 像素宽的候选图（不会放大超过原图宽度），自动输出宽高、懒加载和异步解码属性。默认宽度对应正文的 42rem；如果调整正文宽度，要同步修改 `astro.config.mjs` 中的图片宽度与 `sizes`。
+
+原图保留在源码中，不直接发布。`public` 绝对路径和外链仍可用于无需处理的图片；`public` 中的文件不会被 Astro 优化。
 
 ## 修改 About 页面
 
@@ -252,7 +254,7 @@ RSS 路由：
 src/pages/[lang]/rss.xml.js
 ```
 
-只生成：
+只生成下列订阅源，频道主页分别指向 `/en/` 和 `/zh/`：
 
 ```text
 /en/rss.xml
@@ -332,9 +334,12 @@ pnpm run test:i18n
 - 文章 frontmatter 有 `title`、`description`、`pubDate`
 - 同 slug 多语言日期一致
 - frontmatter 不写 `slug`
-- Markdown 图片只用 public 绝对路径或外链
+- Markdown 本地图片引用的文件存在（支持相对路径和 public 绝对路径）
 - 草稿不生成页面，也不进入 RSS
 - 首页、文章列表、文章页、About、RSS 路由按语言生成
 - sitemap 不输出 alternate 扩展
+- 导航正确标记当前页面或所属栏目，RSS 频道主页保持当前语言
+- 列表与文章元数据使用完整、简短的 description
+- 日本游记的图片已优化并设置宽高、懒加载，默认尺寸合计小于 2 MiB
 
 如果只是改文档，不需要跑构建。

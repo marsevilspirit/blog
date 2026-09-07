@@ -4,7 +4,7 @@ import type { HTMLAttributes } from 'astro/types';
 type Props = HTMLAttributes<'a'>;
 
 const { href, class: className, ...props } = Astro.props;
-const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
+const pathname = Astro.url.pathname;
 const normalizedPath = pathname.endsWith('/') ? pathname : `${pathname}/`;
 const normalizedHref = href?.endsWith('/') ? href : `${href}/`;
 const isLanguageHome = /^\/(en|zh)\/$/.test(normalizedHref);
@@ -13,7 +13,12 @@ const isActive =
 	(!isLanguageHome && normalizedPath.startsWith(normalizedHref));
 ---
 
-<a href={href} class:list={[className, { active: isActive }]} {...props}>
+<a
+	href={href}
+	class:list={[className, { active: isActive }]}
+	aria-current={normalizedPath === normalizedHref ? 'page' : isActive ? 'true' : undefined}
+	{...props}
+>
 	<slot />
 </a>
 <style>

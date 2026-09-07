@@ -1,6 +1,6 @@
 ---
 title: '2025 Summary'
-description: 'Looking back at December 17th, 2025 was a year of "new beginnings" and "tough choices" for me.'
+description: 'From a trip to Japan and completing GSoC to joining OceanBase, I look back on the new beginnings and tough choices of 2025.'
 pubDate: '2025-12-17T02:59:56+08:00'
 ---
 

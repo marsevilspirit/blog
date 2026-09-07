@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict';
-import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { test } from 'node:test';
 import { fileURLToPath } from 'node:url';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const languages = ['en', 'zh'];
@@ -57,11 +57,11 @@ function markdownData(path, requiredFields) {
 	}
 
 	assert.equal(data.slug, undefined, `${path} should not define frontmatter slug`);
-	assert.doesNotMatch(
-		markdown,
-		/!\[[^\]]*]\((?!\/|https?:\/\/)/,
-		`${path} images should use public absolute paths or external URLs`,
-	);
+	for (const [, src] of markdown.matchAll(/!\[[^\]]*]\(([^\s)]+)/g)) {
+		if (!/^https?:\/\//.test(src)) {
+			assertExists(src.startsWith('/') ? `public${src}` : join(dirname(path), src));
+		}
+	}
 
 	return data;
 }
@@ -274,8 +274,6 @@ test('localized home pages render expected copy and do not leak post titles from
 	assert.doesNotMatch(enHome, /<meta property="article:/);
 	assert.match(enHome, /software engineer/);
 	assert.match(enHome, /Recent posts/);
-	assert.match(enHome, /The story began with a trip to Japan/);
-	assert.match(enHome, /no other music player can reach the high quality of sound/);
 	assert.match(enHome, /aria-label="Author links"/);
 	assert.match(enHome, /<select[^>]+aria-label="Language"/);
 	assert.doesNotMatch(enHome, /<span[^>]*>\s*Language\s*<\/span>/);
@@ -308,13 +306,104 @@ test('RSS feeds include published posts and exclude drafts for each language', (
 
 	for (const lang of languages) {
 		const rss = read(`dist/${lang}/rss.xml`);
-		for (const { data } of groupedPosts[lang]) {
+		assert.match(
+			rss,
+			new RegExp(`<channel>[\\s\\S]*?<link>https://www\\.marsevilspirit\\.com/${lang}/</link>`),
+		);
+		for (const { slug, data } of groupedPosts[lang]) {
 			if (isDraft(data)) {
 				assert.ok(!rss.includes(data.title), `${lang} RSS should not include draft ${data.title}`);
 			} else {
 				assert.ok(rss.includes(data.title), `${lang} RSS should include ${data.title}`);
+				assert.ok(
+					rss.includes(`<link>https://www.marsevilspirit.com/${lang}/posts/${slug}/</link>`),
+				);
+				assert.ok(rss.includes(`<description>${data.description}</description>`));
 			}
 		}
+	}
+});
+
+test('navigation marks only the current page or parent section', () => {
+	const groupedPosts = postsByLang();
+	for (const lang of languages) {
+		const pages = [
+			['', undefined, undefined],
+			['posts/', 'posts', 'page'],
+			['about/', 'about', 'page'],
+			...groupedPosts[lang]
+				.filter(({ data }) => !isDraft(data))
+				.map(({ slug }) => [`posts/${slug}/`, 'posts', 'true']),
+		];
+		for (const [page, currentSection, currentValue] of pages) {
+			const html = read(`dist/${lang}/${page}index.html`);
+			for (const section of ['posts', 'about']) {
+				const link = html.match(new RegExp(`<a\\b[^>]*href="/${lang}/${section}/"[^>]*>`))?.[0];
+				assert.ok(link);
+				if (section === currentSection) {
+					assert.match(link, /class="active"/);
+					assert.ok(link.includes(`aria-current="${currentValue}"`));
+				} else {
+					assert.doesNotMatch(link, /aria-current=|class="active"/);
+				}
+			}
+		}
+	}
+});
+
+test('lists and post metadata use complete, concise descriptions', () => {
+	for (const lang of languages) {
+		const home = read(`dist/${lang}/index.html`);
+		const index = read(`dist/${lang}/posts/index.html`);
+		const posts = postsByLang()[lang].filter(({ data }) => !isDraft(data));
+		const recent = [...posts]
+			.sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate))
+			.slice(0, 5);
+		for (const { slug, data } of posts) {
+			assert.doesNotMatch(data.description, /\.\.\.|…/);
+			assert.match(data.description, /[。.!?]$/);
+			assert.ok(data.description.length <= (lang === 'zh' ? 60 : 160));
+			assert.ok(index.includes(`<p>${data.description}</p>`));
+			if (recent.some((post) => post.slug === slug)) {
+				assert.ok(home.includes(`<p>${data.description}</p>`));
+			}
+			const html = read(`dist/${lang}/posts/${slug}/index.html`);
+			assert.ok(html.includes(`<meta name="description" content="${data.description}">`));
+		}
+	}
+});
+
+test('travel photos are resized WebP images with lazy loading and reserved space', () => {
+	for (const lang of languages) {
+		const html = read(`dist/${lang}/posts/a-trip-to-japan/index.html`);
+		const images = [...html.matchAll(/<img\b[^>]*>/g)].map(([tag]) =>
+			Object.fromEntries(
+				[...tag.matchAll(/([\w-]+)="([^"]*)"/g)].map(([, key, value]) => [key, value]),
+			),
+		);
+		assert.equal(images.length, 13);
+		let totalBytes = 0;
+		for (const image of images) {
+			assert.match(image.src, /^\/_astro\/.*\.webp$/);
+			assert.equal(image.width, '756');
+			assert.ok(Number(image.height) > 0);
+			assert.equal(image.loading, 'lazy');
+			assert.equal(image.decoding, 'async');
+			assert.match(image.sizes, /^auto,/);
+			assert.match(image.srcset, /\.webp 378w/);
+			assert.match(image.srcset, /\.webp 756w/);
+			for (const candidate of image.srcset.split(', ')) {
+				assertExists(`dist${candidate.split(' ')[0]}`);
+			}
+			totalBytes += statSync(file(`dist${image.src}`)).size;
+		}
+		assert.ok(
+			totalBytes < 2 * 1024 * 1024,
+			'the 13 default-size photos should total less than 2 MiB',
+		);
+	}
+	for (const original of readdirSync(file('src/content/posts/a-trip-to-japan/images'))) {
+		assertMissing(`dist/posts/a-trip-to-japan/${original}`);
 	}
 });
 

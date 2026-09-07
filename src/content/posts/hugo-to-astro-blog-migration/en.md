@@ -1,6 +1,6 @@
 ---
 title: 'From Hugo to Astro: A Blog Migration Built with AI'
-description: 'I once migrated my blog from Hexo to Hugo. Now I have moved it from Hugo to Astro, and this time AI was part of the whole process.'
+description: 'With help from AI, I moved my blog from Hugo to Astro, built bilingual routes and RSS feeds, and regained control of its structure.'
 pubDate: '2026-06-08T15:20:00+08:00'
 ---
 

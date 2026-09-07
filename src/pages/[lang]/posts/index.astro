@@ -12,7 +12,6 @@ import {
 	publishedPostGroups,
 	sitePageAlternates,
 } from '../../../i18n';
-import { postExcerpt } from '../../../post-excerpt';
 
 export function getStaticPaths() {
 	return LANGUAGES.map((lang) => ({
@@ -60,7 +59,7 @@ const yearGroups = groupByYear(
 									<li>
 										<a href={postPath(lang, group.slug)}>{post.data.title}</a>
 										<FormattedDate date={group.date} lang={lang} />
-										<p>{postExcerpt(post.body, post.data.description)}</p>
+										<p>{post.data.description}</p>
 									</li>
 								);
 							})}
