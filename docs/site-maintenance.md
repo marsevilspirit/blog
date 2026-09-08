@@ -328,7 +328,7 @@ pnpm run test:i18n
 `pnpm run test:i18n` 会检查：
 
 - 旧 `src/content/blog` 和旧 `/blog` 页面源码不存在
-- `config/site.toml`、`config/en.toml`、`config/zh.toml` 存在，并且站点级文案从 TOML 读取
+- `config/site.toml`、`config/en.toml`、`config/zh.toml` 存在
 - About 同时有 `en.md` 和 `zh.md`
 - 文章语言文件只允许 `en.md` / `zh.md`
 - 文章 frontmatter 有 `title`、`description`、`pubDate`

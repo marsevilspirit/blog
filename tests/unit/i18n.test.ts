@@ -1,5 +1,6 @@
-import { describe, expect, it } from 'vitest';
-import type { PostEntry } from '../../src/i18n';
+import assert from 'node:assert/strict';
+import { describe, it } from 'node:test';
+import type { PostEntry } from '../../src/i18n.ts';
 import {
 	buildPostGroups,
 	defaultAlternate,
@@ -12,7 +13,7 @@ import {
 	publishedPostGroups,
 	sitePageAlternates,
 	validateAbout,
-} from '../../src/i18n';
+} from '../../src/i18n.ts';
 
 function postEntry(id: string, pubDate: string, draft = false): PostEntry {
 	return {
@@ -26,12 +27,13 @@ function postEntry(id: string, pubDate: string, draft = false): PostEntry {
 
 describe('i18n routing helpers', () => {
 	it('parses post content ids and rejects unsupported languages', () => {
-		expect(postIdParts('hello-world/en')).toEqual({ slug: 'hello-world', lang: 'en' });
-		expect(postIdParts('hello-world/zh')).toEqual({ slug: 'hello-world', lang: 'zh' });
-		expect(() => postIdParts('hello-world/fr')).toThrow('Unsupported language: fr');
-		expect(() => postIdParts('/en')).toThrow('Post content id is missing slug: /en');
-		expect(() => postIdParts('hello-world')).toThrow(
-			'Post content id must be <slug>/<lang>, got hello-world',
+		assert.deepEqual(postIdParts('hello-world/en'), { slug: 'hello-world', lang: 'en' });
+		assert.deepEqual(postIdParts('hello-world/zh'), { slug: 'hello-world', lang: 'zh' });
+		assert.throws(() => postIdParts('hello-world/fr'), /Unsupported language: fr/);
+		assert.throws(() => postIdParts('/en'), /Post content id is missing slug: \/en/);
+		assert.throws(
+			() => postIdParts('hello-world'),
+			/Post content id must be <slug>\/<lang>, got hello-world/,
 		);
 	});
 
@@ -42,27 +44,34 @@ describe('i18n routing helpers', () => {
 			postEntry('older/zh', '2025-01-01T00:00:00.000Z'),
 		]);
 
-		expect(groups.map((group) => group.slug)).toEqual(['newer', 'older']);
-		expect(groupAlternates(groups[1])).toEqual({
+		assert.deepEqual(
+			groups.map((group) => group.slug),
+			['newer', 'older'],
+		);
+		assert.deepEqual(groupAlternates(groups[1]), {
 			en: '/en/posts/older/',
 			zh: '/zh/posts/older/',
 		});
 	});
 
 	it('rejects duplicate translations and mismatched translation dates', () => {
-		expect(() =>
-			buildPostGroups([
-				postEntry('duplicate/en', '2026-01-01T00:00:00.000Z'),
-				postEntry('duplicate/en', '2026-01-01T00:00:00.000Z'),
-			]),
-		).toThrow('Duplicate en entry for post duplicate');
+		assert.throws(
+			() =>
+				buildPostGroups([
+					postEntry('duplicate/en', '2026-01-01T00:00:00.000Z'),
+					postEntry('duplicate/en', '2026-01-01T00:00:00.000Z'),
+				]),
+			/Duplicate en entry for post duplicate/,
+		);
 
-		expect(() =>
-			buildPostGroups([
-				postEntry('mismatch/en', '2026-01-01T00:00:00.000Z'),
-				postEntry('mismatch/zh', '2026-01-02T00:00:00.000Z'),
-			]),
-		).toThrow('Post mismatch translations must share pubDate');
+		assert.throws(
+			() =>
+				buildPostGroups([
+					postEntry('mismatch/en', '2026-01-01T00:00:00.000Z'),
+					postEntry('mismatch/zh', '2026-01-02T00:00:00.000Z'),
+				]),
+			/Post mismatch translations must share pubDate/,
+		);
 	});
 
 	it('filters drafts per language without dropping published translations', () => {
@@ -72,9 +81,12 @@ describe('i18n routing helpers', () => {
 			postEntry('draft-only/en', '2026-02-01T00:00:00.000Z', true),
 		]);
 
-		expect(groups.map((group) => group.slug)).toEqual(['mixed']);
-		expect(groups[0].entries.en).toBeUndefined();
-		expect(groups[0].entries.zh?.id).toBe('mixed/zh');
+		assert.deepEqual(
+			groups.map((group) => group.slug),
+			['mixed'],
+		);
+		assert.equal(groups[0].entries.en, undefined);
+		assert.equal(groups[0].entries.zh?.id, 'mixed/zh');
 	});
 
 	it('groups posts by language and year', () => {
@@ -84,8 +96,11 @@ describe('i18n routing helpers', () => {
 			postEntry('previous/en', '2025-01-01T00:00:00+08:00'),
 		]);
 
-		expect(groupsForLang(groups, 'zh').map((group) => group.slug)).toEqual(['current']);
-		expect(groupByYear(groups)).toEqual([
+		assert.deepEqual(
+			groupsForLang(groups, 'zh').map((group) => group.slug),
+			['current'],
+		);
+		assert.deepEqual(groupByYear(groups), [
 			{ year: 2026, groups: [groups[0]] },
 			{ year: 2025, groups: [groups[1]] },
 		]);
@@ -93,8 +108,8 @@ describe('i18n routing helpers', () => {
 
 	it('formats dates in the configured site time zone', () => {
 		const date = new Date('2026-07-16T00:00:00+08:00');
-		expect(formatDate(date, 'en')).toBe('16 July 2026');
-		expect(formatDate(date, 'zh')).toBe('2026年7月16日');
+		assert.equal(formatDate(date, 'en'), '16 July 2026');
+		assert.equal(formatDate(date, 'zh'), '2026年7月16日');
 	});
 
 	it('formats dates and groups years in the site time zone', () => {
@@ -103,25 +118,25 @@ describe('i18n routing helpers', () => {
 			postEntry('year-end/en', '2025-12-31T15:59:59.000Z'),
 		]);
 
-		expect(formatDate(new Date('2025-05-26T01:24:31+08:00'), 'en')).toBe('26 May 2025');
-		expect(formatDate(new Date('2025-05-26T01:24:31+08:00'), 'zh')).toBe('2025年5月26日');
-		expect(formatDate(groups[0].date, 'en')).toBe('1 January 2026');
-		expect(formatDate(groups[1].date, 'zh')).toBe('2025年12月31日');
-		expect(groupByYear(groups)).toEqual([
+		assert.equal(formatDate(new Date('2025-05-26T01:24:31+08:00'), 'en'), '26 May 2025');
+		assert.equal(formatDate(new Date('2025-05-26T01:24:31+08:00'), 'zh'), '2025年5月26日');
+		assert.equal(formatDate(groups[0].date, 'en'), '1 January 2026');
+		assert.equal(formatDate(groups[1].date, 'zh'), '2025年12月31日');
+		assert.deepEqual(groupByYear(groups), [
 			{ year: 2026, groups: [groups[0]] },
 			{ year: 2025, groups: [groups[1]] },
 		]);
 	});
 
 	it('returns configured page alternates and language labels', () => {
-		expect(sitePageAlternates('about')).toEqual({
+		assert.deepEqual(sitePageAlternates('about'), {
 			en: '/en/about/',
 			zh: '/zh/about/',
 		});
-		expect(languageLabel('en')).toBe('English');
-		expect(languageLabel('zh')).toBe('中文');
-		expect(defaultAlternate({ en: '/en/', zh: '/zh/' })).toBe('/en/');
-		expect(defaultAlternate({ zh: '/zh/' })).toBeUndefined();
+		assert.equal(languageLabel('en'), 'English');
+		assert.equal(languageLabel('zh'), '中文');
+		assert.equal(defaultAlternate({ en: '/en/', zh: '/zh/' }), '/en/');
+		assert.equal(defaultAlternate({ zh: '/zh/' }), undefined);
 	});
 
 	it('requires one about page per supported language', () => {
@@ -129,10 +144,11 @@ describe('i18n routing helpers', () => {
 			typeof validateAbout
 		>[0]);
 
-		expect(about.en.id).toBe('en');
-		expect(about.zh.id).toBe('zh');
-		expect(() => validateAbout([{ id: 'en' }] as Parameters<typeof validateAbout>[0])).toThrow(
-			'Missing about/zh.md',
+		assert.equal(about.en.id, 'en');
+		assert.equal(about.zh.id, 'zh');
+		assert.throws(
+			() => validateAbout([{ id: 'en' }] as Parameters<typeof validateAbout>[0]),
+			/Missing about\/zh\.md/,
 		);
 	});
 });

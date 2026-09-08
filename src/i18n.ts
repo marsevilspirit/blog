@@ -1,5 +1,5 @@
 import type { CollectionEntry } from 'astro:content';
-import { DEFAULT_LANG, LANGUAGES, SITE, SITE_TIME_ZONE, type Lang } from './config';
+import { DEFAULT_LANG, LANGUAGES, SITE, SITE_TIME_ZONE, type Lang } from './config.ts';
 
 export type PostEntry = CollectionEntry<'posts'>;
 export type AboutEntry = CollectionEntry<'about'>;
@@ -62,10 +62,6 @@ export function postIdParts(id: string): { slug: string; lang: Lang } {
 		throw new Error(`Post content id is missing slug: ${id}`);
 	}
 	return { slug, lang };
-}
-
-export function aboutIdLang(id: string): Lang {
-	return assertLang(id);
 }
 
 export function buildPostGroups(entries: PostEntry[]): PostGroup[] {
@@ -141,7 +137,7 @@ export function groupByYear(groups: PostGroup[]): Array<{ year: number; groups: 
 
 export function validateAbout(entries: AboutEntry[]): Record<Lang, AboutEntry> {
 	const about = Object.fromEntries(
-		entries.map((entry) => [aboutIdLang(entry.id), entry]),
+		entries.map((entry) => [assertLang(entry.id), entry]),
 	) as Partial<Record<Lang, AboutEntry>>;
 	for (const lang of LANGUAGES) {
 		if (!about[lang]) {

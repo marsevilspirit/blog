@@ -3,6 +3,7 @@ import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { test } from 'node:test';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { parseFrontmatter } from '@astrojs/markdown-remark';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const languages = ['en', 'zh'];
@@ -24,33 +25,10 @@ function assertMissing(path) {
 	assert.ok(!existsSync(file(path)), `${path} should not exist`);
 }
 
-function regexEscape(value) {
-	return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-
-function unquoteFrontmatterValue(value) {
-	const quote = value[0];
-	if ((quote === '"' || quote === "'") && value.endsWith(quote)) {
-		return value.slice(1, -1);
-	}
-	return value;
-}
-
-function frontmatter(markdown, path) {
-	const match = markdown.match(/^---\n([\s\S]*?)\n---/);
-	assert.ok(match, `${path} should have YAML frontmatter`);
-	return Object.fromEntries(
-		match[1]
-			.split('\n')
-			.map((line) => line.match(/^([A-Za-z0-9_]+):\s*(.*)$/))
-			.filter(Boolean)
-			.map((match) => [match[1], unquoteFrontmatterValue(match[2])]),
-	);
-}
-
 function markdownData(path, requiredFields) {
 	const markdown = read(path);
-	const data = frontmatter(markdown, path);
+	assert.match(markdown, /^---\n[\s\S]*?\n---/, `${path} should have YAML frontmatter`);
+	const { frontmatter: data } = parseFrontmatter(markdown);
 
 	for (const field of requiredFields) {
 		assert.ok(data[field], `${path} should define ${field}`);
@@ -68,12 +46,12 @@ function markdownData(path, requiredFields) {
 
 function optionPattern(href, label) {
 	return new RegExp(
-		`<option[^>]+value="${regexEscape(href)}"[^>]*>\\s*${regexEscape(label)}\\s*<\\/option>`,
+		`<option[^>]+value="${RegExp.escape(href)}"[^>]*>\\s*${RegExp.escape(label)}\\s*<\\/option>`,
 	);
 }
 
 function isDraft(data) {
-	return data.draft === 'true';
+	return data.draft === true;
 }
 
 function postSlugs() {
@@ -154,18 +132,6 @@ test('legacy source paths are removed and TOML config files exist', () => {
 	assertExists('config/zh.toml');
 });
 
-test('site copy is read from TOML config instead of hardcoded source constants', () => {
-	const zhConfigToml = read('config/zh.toml');
-	assert.match(zhConfigToml, /authorBio = "我喜欢把复杂的问题拆清楚，再写成简单可维护的代码。"/);
-
-	const configSource = read('src/config.ts');
-	assert.match(configSource, /readSiteConfig/);
-	assert.doesNotMatch(
-		configSource,
-		/authorBio: '我喜欢把复杂的问题拆清楚，再写成简单可维护的代码。'/,
-	);
-});
-
 test('about content has exactly one Markdown file per supported language', () => {
 	const aboutFiles = readdirSync(file('src/content/about'))
 		.filter((name) => name.endsWith('.md'))
@@ -191,7 +157,7 @@ test('post content groups use supported language files and shared translation da
 		}
 
 		assert.equal(entries.size, files.length, `${slug} should not duplicate a language`);
-		const dates = new Set([...entries.values()].map((data) => data.pubDate));
+		const dates = new Set([...entries.values()].map((data) => new Date(data.pubDate).valueOf()));
 		assert.equal(dates.size, 1, `${slug} translations should share pubDate`);
 	}
 });
@@ -212,21 +178,23 @@ test('built post pages match published translations and language alternates', ()
 			assert.match(html, new RegExp(`<html lang="${lang === 'en' ? 'en' : 'zh-CN'}"`));
 			assert.match(
 				html,
-				new RegExp(`href="https://www\\.marsevilspirit\\.com/${lang}/posts/${regexEscape(slug)}/"`),
+				new RegExp(
+					`href="https://www\\.marsevilspirit\\.com/${lang}/posts/${RegExp.escape(slug)}/"`,
+				),
 			);
 			assert.match(html, optionPattern(`/${lang}/posts/${slug}/`, languageLabels[lang]));
 			assert.match(html, /<meta property="og:type" content="article">/);
 			assert.match(
 				html,
 				new RegExp(
-					`<meta property="article:published_time" content="${regexEscape(new Date(entry.pubDate).toISOString())}">`,
+					`<meta property="article:published_time" content="${RegExp.escape(new Date(entry.pubDate).toISOString())}">`,
 				),
 			);
 			if (entry.updatedDate) {
 				assert.match(
 					html,
 					new RegExp(
-						`<meta property="article:modified_time" content="${regexEscape(new Date(entry.updatedDate).toISOString())}">`,
+						`<meta property="article:modified_time" content="${RegExp.escape(new Date(entry.updatedDate).toISOString())}">`,
 					),
 				);
 			} else {

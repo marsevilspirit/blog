@@ -7,10 +7,7 @@ const { href, class: className, ...props } = Astro.props;
 const pathname = Astro.url.pathname;
 const normalizedPath = pathname.endsWith('/') ? pathname : `${pathname}/`;
 const normalizedHref = href?.endsWith('/') ? href : `${href}/`;
-const isLanguageHome = /^\/(en|zh)\/$/.test(normalizedHref);
-const isActive =
-	normalizedPath === normalizedHref ||
-	(!isLanguageHome && normalizedPath.startsWith(normalizedHref));
+const isActive = normalizedPath.startsWith(normalizedHref);
 ---
 
 <a
