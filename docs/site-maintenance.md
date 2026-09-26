@@ -15,7 +15,7 @@ src/
     about/           About 页面内容，固定 en.md / zh.md
     posts/           文章内容，按 slug 分组
       <slug>/images/  文章原图，由 Astro 构建时优化
-  layouts/           文章页布局
+  layouts/           全站公共布局 SiteLayout 与文章布局 BlogPost
   pages/             Astro 路由页面
   styles/            全站样式
   config.ts          读取并校验 config/*.toml，导出站点常量
@@ -31,7 +31,7 @@ config/
   zh.toml            中文站点文案
 ```
 
-路由由 `src/pages/` 生成：
+页面路由由 `src/pages/` 生成；根路径跳转由 `astro.config.mjs` 中的 `redirects` 配置生成：
 
 ```text
 /                         静态跳转到 /en/

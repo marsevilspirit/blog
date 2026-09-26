@@ -7,6 +7,7 @@ import { defineConfig, fontProviders } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://www.marsevilspirit.com',
+	redirects: { '/': '/en/' },
 	integrations: [sitemap()],
 	markdown: {
 		processor: unified({

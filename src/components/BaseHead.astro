@@ -2,8 +2,8 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
-import { SITE_TITLE, type Lang } from '../config';
-import { defaultAlternate, rssPath, type Alternates } from '../i18n';
+import { DEFAULT_LANG, SITE_TITLE, type Lang } from '../config';
+import { rssPath, type Alternates } from '../i18n';
 import { Font } from 'astro:assets';
 
 interface Props {
@@ -27,7 +27,7 @@ const {
 	publishedTime,
 	modifiedTime,
 } = Astro.props;
-const xDefault = defaultAlternate(alternates);
+const xDefault = alternates[DEFAULT_LANG];
 ---
 
 <!-- Global Metadata -->

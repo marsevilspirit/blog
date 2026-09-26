@@ -1,0 +1,25 @@
+---
+import type { ComponentProps } from 'astro/types';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE } from '../config';
+
+type Props = ComponentProps<typeof BaseHead>;
+
+const { lang, alternates = {} } = Astro.props;
+---
+
+<!doctype html>
+<html lang={SITE[lang].htmlLang}>
+	<head>
+		<BaseHead {...Astro.props} />
+	</head>
+	<body>
+		<Header lang={lang} alternates={alternates} />
+		<main>
+			<slot />
+		</main>
+		<Footer lang={lang} />
+	</body>
+</html>

@@ -22,34 +22,30 @@ const languageConfigSchema = z.object({
 	authorBio: nonEmptyString,
 });
 
-const siteConfigSchema = z
-	.object({
-		title: nonEmptyString,
-		defaultLang: language,
-		languages: z
-			.array(language)
-			.refine((languages) => SUPPORTED_LANGUAGES.every((lang) => languages.includes(lang)), {
-				message: 'config/site.toml languages must include en and zh',
-			}),
-		timeZone: nonEmptyString.refine(
-			(value) => {
-				try {
-					new Intl.DateTimeFormat('en', { timeZone: value });
-					return true;
-				} catch {
-					return false;
-				}
-			},
-			{ message: 'config TOML timeZone must be a valid IANA time zone' },
-		),
-		author: z.object({
-			name: nonEmptyString,
-			links: z.array(z.object({ label: nonEmptyString, href: nonEmptyString })),
+const siteConfigSchema = z.object({
+	title: nonEmptyString,
+	defaultLang: language,
+	languages: z
+		.array(language)
+		.refine((languages) => SUPPORTED_LANGUAGES.every((lang) => languages.includes(lang)), {
+			message: 'config/site.toml languages must include en and zh',
 		}),
-	})
-	.refine((config) => config.languages.includes(config.defaultLang), {
-		message: 'config/site.toml defaultLang must be listed in languages',
-	});
+	timeZone: nonEmptyString.refine(
+		(value) => {
+			try {
+				new Intl.DateTimeFormat('en', { timeZone: value });
+				return true;
+			} catch {
+				return false;
+			}
+		},
+		{ message: 'config TOML timeZone must be a valid IANA time zone' },
+	),
+	author: z.object({
+		name: nonEmptyString,
+		links: z.array(z.object({ label: nonEmptyString, href: nonEmptyString })),
+	}),
+});
 
 function readTomlFile(path: string) {
 	return parse(readFileSync(path, 'utf8'));

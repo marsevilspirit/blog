@@ -231,8 +231,9 @@ test('required built routes exist and removed root routes are absent', () => {
 
 test('root page redirects to the English home page', () => {
 	const rootHtml = read('dist/index.html');
-	assert.match(rootHtml, /url=\/en\//i);
-	assert.match(rootHtml, /location\.replace\('\/en\/'\)/);
+	assert.match(rootHtml, /<meta http-equiv="refresh" content="0;url=\/en\/">/);
+	assert.match(rootHtml, /<link rel="canonical" href="https:\/\/www\.marsevilspirit\.com\/en\/">/);
+	assert.match(rootHtml, /<a href="\/en\/">/);
 });
 
 test('localized home pages render expected copy and do not leak post titles from another language', () => {

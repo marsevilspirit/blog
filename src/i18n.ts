@@ -1,5 +1,5 @@
 import type { CollectionEntry } from 'astro:content';
-import { DEFAULT_LANG, LANGUAGES, SITE, SITE_TIME_ZONE, type Lang } from './config.ts';
+import { LANGUAGES, SITE, SITE_TIME_ZONE, type Lang } from './config.ts';
 
 export type PostEntry = CollectionEntry<'posts'>;
 export type AboutEntry = CollectionEntry<'about'>;
@@ -125,14 +125,8 @@ export function sitePageAlternates(page: 'home' | 'posts' | 'about'): Record<Lan
 }
 
 export function groupByYear(groups: PostGroup[]): Array<{ year: number; groups: PostGroup[] }> {
-	const byYear = new Map<number, PostGroup[]>();
-	for (const group of groups) {
-		const year = Number(SITE_YEAR_FORMATTER.format(group.date));
-		byYear.set(year, [...(byYear.get(year) ?? []), group]);
-	}
-	return [...byYear.entries()]
-		.sort(([a], [b]) => b - a)
-		.map(([year, groups]) => ({ year, groups }));
+	const byYear = Map.groupBy(groups, (group) => Number(SITE_YEAR_FORMATTER.format(group.date)));
+	return [...byYear].sort(([a], [b]) => b - a).map(([year, groups]) => ({ year, groups }));
 }
 
 export function validateAbout(entries: AboutEntry[]): Record<Lang, AboutEntry> {
@@ -152,8 +146,4 @@ export function formatDate(date: Date, lang: Lang): string {
 		...SITE[lang].dateOptions,
 		timeZone: SITE_TIME_ZONE,
 	});
-}
-
-export function defaultAlternate(alternates: Alternates): string | undefined {
-	return alternates[DEFAULT_LANG];
 }

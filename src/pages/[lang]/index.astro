@@ -1,9 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseHead from '../../components/BaseHead.astro';
-import Footer from '../../components/Footer.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
-import Header from '../../components/Header.astro';
+import SiteLayout from '../../layouts/SiteLayout.astro';
 import { AUTHOR_LINKS, AUTHOR_NAME, LANGUAGES, SITE, SITE_TITLE, type Lang } from '../../config';
 import {
 	groupsForLang,
@@ -34,56 +32,41 @@ const authorLinks = AUTHOR_LINKS.map((link) =>
 );
 ---
 
-<!doctype html>
-<html lang={copy.htmlLang}>
-	<head>
-		<BaseHead
-			title={SITE_TITLE}
-			description={copy.description}
-			lang={lang}
-			alternates={alternates}
-		/>
-	</head>
-	<body>
-		<Header lang={lang} alternates={alternates} />
-		<main>
-			<section class="author-profile">
-				<div>
-					<p class="muted">{AUTHOR_NAME} · {copy.authorHeadline}</p>
-					<p>{copy.authorBio}</p>
-					<ul class="inline-links">
-						{
-							authorLinks.map((link) => (
-								<li>
-									<a href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined}>
-										{link.label}
-									</a>
-								</li>
-							))
-						}
-					</ul>
-				</div>
-			</section>
+<SiteLayout title={SITE_TITLE} description={copy.description} lang={lang} alternates={alternates}>
+	<section class="author-profile">
+		<div>
+			<p class="muted">{AUTHOR_NAME} · {copy.authorHeadline}</p>
+			<p>{copy.authorBio}</p>
+			<ul class="inline-links">
+				{
+					authorLinks.map((link) => (
+						<li>
+							<a href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined}>
+								{link.label}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</section>
 
-			<section aria-labelledby="recent-posts">
-				<h2 id="recent-posts">{copy.home.recentPosts}</h2>
-				<ul class="post-list">
-					{
-						groups.map((group) => {
-							const post = group.entries[lang]!;
-							return (
-								<li>
-									<a href={postPath(lang, group.slug)}>{post.data.title}</a>
-									<FormattedDate date={group.date} lang={lang} />
-									<p>{post.data.description}</p>
-								</li>
-							);
-						})
-					}
-				</ul>
-				<p><a href={postsPath(lang)}>{copy.home.allPosts}</a></p>
-			</section>
-		</main>
-		<Footer lang={lang} />
-	</body>
-</html>
+	<section aria-labelledby="recent-posts">
+		<h2 id="recent-posts">{copy.home.recentPosts}</h2>
+		<ul class="post-list">
+			{
+				groups.map((group) => {
+					const post = group.entries[lang]!;
+					return (
+						<li>
+							<a href={postPath(lang, group.slug)}>{post.data.title}</a>
+							<FormattedDate date={group.date} lang={lang} />
+							<p>{post.data.description}</p>
+						</li>
+					);
+				})
+			}
+		</ul>
+		<p><a href={postsPath(lang)}>{copy.home.allPosts}</a></p>
+	</section>
+</SiteLayout>

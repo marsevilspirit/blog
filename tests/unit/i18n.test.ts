@@ -3,7 +3,6 @@ import { describe, it } from 'node:test';
 import type { PostEntry } from '../../src/i18n.ts';
 import {
 	buildPostGroups,
-	defaultAlternate,
 	formatDate,
 	groupAlternates,
 	groupByYear,
@@ -93,6 +92,7 @@ describe('i18n routing helpers', () => {
 		const groups = buildPostGroups([
 			postEntry('current/en', '2026-01-01T00:00:00+08:00'),
 			postEntry('current/zh', '2026-01-01T00:00:00+08:00'),
+			postEntry('current-later/en', '2026-06-01T00:00:00+08:00'),
 			postEntry('previous/en', '2025-01-01T00:00:00+08:00'),
 		]);
 
@@ -100,9 +100,10 @@ describe('i18n routing helpers', () => {
 			groupsForLang(groups, 'zh').map((group) => group.slug),
 			['current'],
 		);
-		assert.deepEqual(groupByYear(groups), [
-			{ year: 2026, groups: [groups[0]] },
-			{ year: 2025, groups: [groups[1]] },
+		assert.deepEqual(groupByYear([]), []);
+		assert.deepEqual(groupByYear([groups[2], groups[1], groups[0]]), [
+			{ year: 2026, groups: [groups[1], groups[0]] },
+			{ year: 2025, groups: [groups[2]] },
 		]);
 	});
 
@@ -135,8 +136,6 @@ describe('i18n routing helpers', () => {
 		});
 		assert.equal(languageLabel('en'), 'English');
 		assert.equal(languageLabel('zh'), '中文');
-		assert.equal(defaultAlternate({ en: '/en/', zh: '/zh/' }), '/en/');
-		assert.equal(defaultAlternate({ zh: '/zh/' }), undefined);
 	});
 
 	it('requires one about page per supported language', () => {
