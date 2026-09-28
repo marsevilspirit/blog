@@ -15,7 +15,9 @@ const nav = SITE[lang].nav;
 
 <header>
 	<nav>
-		<a class="site-title" href={homePath(lang)}>{SITE_TITLE}</a>
+		<a class="site-title" href={homePath(lang)}>
+			{SITE_TITLE}
+		</a>
 		<div class="internal-links">
 			<HeaderLink href={postsPath(lang)}>{nav.posts}</HeaderLink>
 			<HeaderLink href={aboutPath(lang)}>{nav.about}</HeaderLink>

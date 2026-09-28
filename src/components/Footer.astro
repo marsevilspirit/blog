@@ -14,15 +14,15 @@ const links = AUTHOR_LINKS.map((link) =>
 ---
 
 <footer>
-	<p>&copy; {today.getFullYear()} {SITE_TITLE}</p>
+	<p>
+		&copy; {today.getFullYear()} {SITE_TITLE}
+	</p>
 	<nav aria-label={SITE[lang].footer.authorLinks}>
-		{
-			links.map((link) => (
-				<a href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined}>
-					{link.label}
-				</a>
-			))
-		}
+		{links.map((link) => (
+			<a href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined}>
+				{link.label}
+			</a>
+		))}
 	</nav>
 </footer>
 <style>

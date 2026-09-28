@@ -39,23 +39,21 @@ const yearGroups = groupByYear(
 	<h1>{copy.posts.title}</h1>
 	<p>{copy.posts.description}</p>
 
-	{
-		yearGroups.map(({ year, groups }) => (
-			<section aria-labelledby={`year-${year}`}>
-				<h2 id={`year-${year}`}>{year}</h2>
-				<ul class="post-list">
-					{groups.map((group) => {
-						const post = group.entries[lang]!;
-						return (
-							<li>
-								<a href={postPath(lang, group.slug)}>{post.data.title}</a>
-								<FormattedDate date={group.date} lang={lang} />
-								<p>{post.data.description}</p>
-							</li>
-						);
-					})}
-				</ul>
-			</section>
-		))
-	}
+	{yearGroups.map(({ year, groups }) => (
+		<section aria-labelledby={`year-${year}`}>
+			<h2 id={`year-${year}`}>{year}</h2>
+			<ul class="post-list">
+				{groups.map((group) => {
+					const post = group.entries[lang]!;
+					return (
+						<li>
+							<a href={postPath(lang, group.slug)}>{post.data.title}</a>
+							<FormattedDate date={group.date} lang={lang} />
+							<p>{post.data.description}</p>
+						</li>
+					);
+				})}
+			</ul>
+		</section>
+	))}
 </SiteLayout>

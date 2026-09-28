@@ -30,14 +30,12 @@ const { title, description, pubDate, updatedDate, lang, alternates } = Astro.pro
 			<h1>{title}</h1>
 			<div class="post-meta">
 				<FormattedDate date={pubDate} lang={lang} />
-				{
-					updatedDate && (
-						<span>
-							{lang === 'zh' ? '更新于 ' : 'Updated '}
-							<FormattedDate date={updatedDate} lang={lang} />
-						</span>
-					)
-				}
+				{updatedDate && (
+					<span>
+						{lang === 'zh' ? '更新于 ' : 'Updated '}
+						<FormattedDate date={updatedDate} lang={lang} />
+					</span>
+				)}
 			</div>
 		</header>
 		<div class="prose">

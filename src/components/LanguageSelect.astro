@@ -14,25 +14,21 @@ const fallbackLinks = options.filter((candidate) => candidate !== lang);
 
 <div class="language-select">
 	<select id="language-select" aria-label={SITE[lang].nav.language}>
-		{
-			options.map((candidate) => (
-				<option value={alternates[candidate]} selected={candidate === lang}>
-					{languageLabel(candidate)}
-				</option>
-			))
-		}
+		{options.map((candidate) => (
+			<option value={alternates[candidate]} selected={candidate === lang}>
+				{languageLabel(candidate)}
+			</option>
+		))}
 	</select>
-	{
-		fallbackLinks.length > 0 && (
-			<noscript>
-				<span class="language-fallback">
-					{fallbackLinks.map((candidate) => (
-						<a href={alternates[candidate]}>{languageLabel(candidate)}</a>
-					))}
-				</span>
-			</noscript>
-		)
-	}
+	{fallbackLinks.length > 0 && (
+		<noscript>
+			<span class="language-fallback">
+				{fallbackLinks.map((candidate) => (
+					<a href={alternates[candidate]}>{languageLabel(candidate)}</a>
+				))}
+			</span>
+		</noscript>
+	)}
 </div>
 
 <script>
