@@ -35,18 +35,18 @@ const authorLinks = AUTHOR_LINKS.map((link) =>
 <SiteLayout title={SITE_TITLE} description={copy.description} lang={lang} alternates={alternates}>
 	<section class="author-profile">
 		<div>
-			<p class="muted">{AUTHOR_NAME} · {copy.authorHeadline}</p>
+			<p class="muted">
+				{AUTHOR_NAME} · {copy.authorHeadline}
+			</p>
 			<p>{copy.authorBio}</p>
 			<ul class="inline-links">
-				{
-					authorLinks.map((link) => (
-						<li>
-							<a href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined}>
-								{link.label}
-							</a>
-						</li>
-					))
-				}
+				{authorLinks.map((link) => (
+					<li>
+						<a href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined}>
+							{link.label}
+						</a>
+					</li>
+				))}
 			</ul>
 		</div>
 	</section>
@@ -54,19 +54,19 @@ const authorLinks = AUTHOR_LINKS.map((link) =>
 	<section aria-labelledby="recent-posts">
 		<h2 id="recent-posts">{copy.home.recentPosts}</h2>
 		<ul class="post-list">
-			{
-				groups.map((group) => {
-					const post = group.entries[lang]!;
-					return (
-						<li>
-							<a href={postPath(lang, group.slug)}>{post.data.title}</a>
-							<FormattedDate date={group.date} lang={lang} />
-							<p>{post.data.description}</p>
-						</li>
-					);
-				})
-			}
+			{groups.map((group) => {
+				const post = group.entries[lang]!;
+				return (
+					<li>
+						<a href={postPath(lang, group.slug)}>{post.data.title}</a>
+						<FormattedDate date={group.date} lang={lang} />
+						<p>{post.data.description}</p>
+					</li>
+				);
+			})}
 		</ul>
-		<p><a href={postsPath(lang)}>{copy.home.allPosts}</a></p>
+		<p>
+			<a href={postsPath(lang)}>{copy.home.allPosts}</a>
+		</p>
 	</section>
 </SiteLayout>

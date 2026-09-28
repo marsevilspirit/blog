@@ -35,18 +35,18 @@ const authorLinks = AUTHOR_LINKS.map((link) =>
 	<section class="author-profile">
 		<div>
 			<h1>{entry.data.title}</h1>
-			<p class="muted">{AUTHOR_NAME} · {copy.authorHeadline}</p>
+			<p class="muted">
+				{AUTHOR_NAME} · {copy.authorHeadline}
+			</p>
 			<p>{copy.authorBio}</p>
 			<ul class="inline-links">
-				{
-					authorLinks.map((link) => (
-						<li>
-							<a href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined}>
-								{link.label}
-							</a>
-						</li>
-					))
-				}
+				{authorLinks.map((link) => (
+					<li>
+						<a href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined}>
+							{link.label}
+						</a>
+					</li>
+				))}
 			</ul>
 		</div>
 	</section>
