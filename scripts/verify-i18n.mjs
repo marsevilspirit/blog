@@ -260,6 +260,19 @@ test('localized home pages render expected copy and do not leak post titles from
 	assert.doesNotMatch(zhHome, /2025 Summary/);
 });
 
+test('localized pages include the early theme restore script and toggle', () => {
+	for (const lang of languages) {
+		for (const page of ['', 'posts/', 'about/']) {
+			const html = read(`dist/${lang}/${page}index.html`);
+			assert.match(html, /<html lang="[^"]+" data-theme="light"><head><script>/);
+			const restoreScript = html.indexOf("localStorage.getItem('color-theme')");
+			assert.ok(restoreScript > 0 && restoreScript < html.indexOf('</head>'));
+			assert.match(html, /class="theme-toggle" type="button"/);
+			assert.match(html, new RegExp(lang === 'zh' ? '深色.*浅色' : 'Dark.*Light', 's'));
+		}
+	}
+});
+
 test('localized post indexes group posts by year and do not leak titles from another language', () => {
 	const enPosts = read('dist/en/posts/index.html');
 	assert.match(enPosts, /<h2[^>]*>2025<\/h2>/);

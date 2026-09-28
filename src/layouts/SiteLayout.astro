@@ -11,8 +11,18 @@ const { lang, alternates = {} } = Astro.props;
 ---
 
 <!doctype html>
-<html lang={SITE[lang].htmlLang}>
+<html lang={SITE[lang].htmlLang} data-theme="light">
 	<head>
+		<script is:inline>
+			try {
+				if (localStorage.getItem('color-theme') === 'dark') {
+					document.documentElement.dataset.theme = 'dark';
+				}
+			} catch {
+				// Storage can be disabled; keep the default light theme.
+			}
+			document.documentElement.classList.add('has-js');
+		</script>
 		<BaseHead {...Astro.props} />
 	</head>
 	<body>
