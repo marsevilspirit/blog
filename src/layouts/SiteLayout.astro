@@ -5,9 +5,12 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE } from '../config';
 
-type Props = ComponentProps<typeof BaseHead>;
+type Props = ComponentProps<typeof BaseHead> & {
+	navigationAlternates?: ComponentProps<typeof Header>['alternates'];
+};
 
-const { lang, alternates = {} } = Astro.props;
+const { navigationAlternates, ...headProps } = Astro.props;
+const { lang, alternates = {} } = headProps;
 ---
 
 <!doctype html>
@@ -23,10 +26,10 @@ const { lang, alternates = {} } = Astro.props;
 			}
 			document.documentElement.classList.add('has-js');
 		</script>
-		<BaseHead {...Astro.props} />
+		<BaseHead {...headProps} />
 	</head>
 	<body>
-		<Header lang={lang} alternates={alternates} />
+		<Header lang={lang} alternates={navigationAlternates ?? alternates} />
 		<main>
 			<slot />
 		</main>

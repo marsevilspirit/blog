@@ -180,7 +180,12 @@ day = "numeric"
 - 英文：`17 December 2025`
 - 中文：`2025年12月17日`
 
-支持值由代码校验，当前允许 `numeric`、`2-digit`、`long`、`short`、`narrow`。
+支持值按字段校验：
+
+- `year`、`day`：`numeric` 或 `2-digit`。
+- `month`：`numeric`、`2-digit`、`long`、`short` 或 `narrow`。
+
+不合法的选项会在读取配置时被拒绝。
 
 ## 导航文案
 

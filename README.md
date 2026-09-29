@@ -48,8 +48,10 @@ The URL language is controlled only by the route prefix:
 ```sh
 pnpm install
 pnpm dev
+pnpm run typecheck
 pnpm build
 pnpm run test:i18n
+pnpm run check
 ```
 
 ## Cloudflare Pages

@@ -321,9 +321,10 @@ src/pages/[lang]/bot.astro
 修改内容或结构后，建议跑：
 
 ```bash
-pnpm build
-pnpm run test:i18n
+pnpm run check
 ```
+
+它会依次执行 lint、格式检查、Astro/TypeScript 类型检查、单元测试、构建和 i18n 产物检查。单独检查类型可运行 `pnpm run typecheck`。
 
 `pnpm run test:i18n` 会检查：
 
@@ -339,6 +340,7 @@ pnpm run test:i18n
 - 首页、文章列表、文章页、About、RSS 路由按语言生成
 - sitemap 不输出 alternate 扩展
 - 导航正确标记当前页面或所属栏目，RSS 频道主页保持当前语言
+- 首页有一个主标题，404 保留语言导航但不声明首页为其翻译版本
 - 列表与文章元数据使用完整、简短的 description
 - 日本游记的图片已优化并设置宽高、懒加载，默认尺寸合计小于 2 MiB
 

@@ -236,12 +236,22 @@ test('root page redirects to the English home page', () => {
 	assert.match(rootHtml, /<a href="\/en\/">/);
 });
 
+test('404 offers home language navigation without declaring home page translations', () => {
+	const html = read('dist/404.html');
+	assert.doesNotMatch(html, /<link\b[^>]*hreflang=/);
+	for (const lang of languages) {
+		assert.match(html, optionPattern(`/${lang}/`, languageLabels[lang]));
+	}
+});
+
 test('localized home pages render expected copy and do not leak post titles from another language', () => {
 	const enHome = read('dist/en/index.html');
 	assert.match(enHome, /<html lang="en"/);
 	assert.match(enHome, /<meta property="og:type" content="website">/);
 	assert.doesNotMatch(enHome, /<meta property="article:/);
 	assert.match(enHome, /software engineer/);
+	assert.equal((enHome.match(/<h1\b/g) ?? []).length, 1);
+	assert.match(enHome, /<h1\b[^>]*>[^<]*software engineer<\/h1>/);
 	assert.match(enHome, /Recent posts/);
 	assert.match(enHome, /aria-label="Author links"/);
 	assert.match(enHome, /<select[^>]+aria-label="Language"/);
@@ -252,6 +262,8 @@ test('localized home pages render expected copy and do not leak post titles from
 	const zhHome = read('dist/zh/index.html');
 	assert.match(zhHome, /<html lang="zh-CN"/);
 	assert.match(zhHome, /软件工程师/);
+	assert.equal((zhHome.match(/<h1\b/g) ?? []).length, 1);
+	assert.match(zhHome, /<h1\b[^>]*>[^<]*软件工程师<\/h1>/);
 	assert.match(zhHome, /最近文章/);
 	assert.match(zhHome, /aria-label="作者链接"/);
 	assert.match(zhHome, /<select[^>]+aria-label="语言"/);
@@ -347,7 +359,7 @@ test('lists and post metadata use complete, concise descriptions', () => {
 			assert.ok(data.description.length <= (lang === 'zh' ? 60 : 160));
 			assert.ok(index.includes(`<p>${data.description}</p>`));
 			if (recent.some((post) => post.slug === slug)) {
-				assert.ok(home.includes(`<p>${data.description}</p>`));
+				assert.match(home, new RegExp(`<p\\b[^>]*>${RegExp.escape(data.description)}</p>`));
 			}
 			const html = read(`dist/${lang}/posts/${slug}/index.html`);
 			assert.ok(html.includes(`<meta name="description" content="${data.description}">`));

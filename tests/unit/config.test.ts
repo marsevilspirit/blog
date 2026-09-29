@@ -15,8 +15,9 @@ test('reads TOML config and rejects invalid fields without changing repository c
 			parse(readFileSync(new URL(`../../config/${name}.toml`, import.meta.url), 'utf8')),
 		]),
 	);
-	const cases: Array<[string, Parameters<typeof stringify>[0]]> = [
-		['site', { title: 'Temporary TOML configuration' }],
+	const cases: Array<[string, Parameters<typeof stringify>[0], boolean?]> = [
+		['site', { title: 'Temporary TOML configuration' }, true],
+		['en', { dateOptions: { year: '2-digit', month: '2-digit', day: '2-digit' } }, true],
 		['site', { title: '' }],
 		['site', { author: [] }],
 		['site', { author: { name: 'author', links: 'invalid' } }],
@@ -27,10 +28,12 @@ test('reads TOML config and rejects invalid fields without changing repository c
 		['en', { description: '' }],
 		['en', { nav: [] }],
 		['en', { dateOptions: { year: 'numeric', month: 'invalid', day: 'numeric' } }],
+		['en', { dateOptions: { year: 'long', month: 'long', day: 'numeric' } }],
+		['en', { dateOptions: { year: 'numeric', month: 'long', day: 'short' } }],
 	];
 	try {
 		mkdirSync(join(directory, 'config'));
-		for (const [index, [file, fields]] of cases.entries()) {
+		for (const [file, fields, valid = false] of cases) {
 			for (const name of files) {
 				writeFileSync(
 					join(directory, `config/${name}.toml`),
@@ -46,8 +49,9 @@ test('reads TOML config and rejects invalid fields without changing repository c
 				],
 				{ cwd: directory, encoding: 'utf8' },
 			);
-			assert.equal(result.status, index === 0 ? 0 : 1, result.stderr);
-			if (index === 0) assert.equal(result.stdout.trim(), fields.title);
+			assert.equal(result.status, valid ? 0 : 1, result.stderr);
+			if (valid)
+				assert.equal(result.stdout.trim(), file === 'site' ? fields.title : config.site.title);
 			else assert.match(result.stderr, /ZodError/);
 		}
 	} finally {

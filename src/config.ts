@@ -5,15 +5,17 @@ import { parse } from 'smol-toml';
 const SUPPORTED_LANGUAGES = ['en', 'zh'] as const;
 const language = z.enum(SUPPORTED_LANGUAGES);
 const nonEmptyString = z.string().min(1);
-const dateOption = z.enum(['numeric', '2-digit', 'long', 'short', 'narrow']);
+const numericDateOption = z.enum(['numeric', '2-digit']);
 
 const languageConfigSchema = z.object({
 	description: nonEmptyString,
 	htmlLang: nonEmptyString,
 	dateLocale: nonEmptyString,
-	dateOptions: z
-		.object({ year: dateOption, month: dateOption, day: dateOption })
-		.transform((options) => options as Intl.DateTimeFormatOptions),
+	dateOptions: z.object({
+		year: numericDateOption,
+		month: z.enum(['numeric', '2-digit', 'long', 'short', 'narrow']),
+		day: numericDateOption,
+	}),
 	nav: z.object({ posts: nonEmptyString, about: nonEmptyString, language: nonEmptyString }),
 	home: z.object({ recentPosts: nonEmptyString, allPosts: nonEmptyString }),
 	posts: z.object({ title: nonEmptyString, description: nonEmptyString }),

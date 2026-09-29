@@ -35,9 +35,9 @@ const authorLinks = AUTHOR_LINKS.map((link) =>
 <SiteLayout title={SITE_TITLE} description={copy.description} lang={lang} alternates={alternates}>
 	<section class="author-profile">
 		<div>
-			<p class="muted">
+			<h1 class="muted">
 				{AUTHOR_NAME} · {copy.authorHeadline}
-			</p>
+			</h1>
 			<p>{copy.authorBio}</p>
 			<ul class="inline-links">
 				{authorLinks.map((link) => (
@@ -70,3 +70,13 @@ const authorLinks = AUTHOR_LINKS.map((link) =>
 		</p>
 	</section>
 </SiteLayout>
+
+<style>
+	h1 {
+		margin: 0 0 1rem;
+		color: var(--muted);
+		font-size: 1rem;
+		font-weight: 400;
+		line-height: inherit;
+	}
+</style>
