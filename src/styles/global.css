@@ -1,4 +1,5 @@
 :root {
+	color-scheme: light;
 	--content-width: 42rem;
 	--text: #111;
 	--muted: #666;
@@ -7,6 +8,27 @@
 	--code-background: #f2f2f2;
 	--link: #0645ad;
 	--link-visited: #5a2ca0;
+}
+
+html[data-theme='dark'] {
+	color-scheme: dark;
+	--text: #e8e8e8;
+	--muted: #b5b5b5;
+	--border: #505050;
+	--background: #1b1b1b;
+	--code-background: #292929;
+	--link: #8db8ff;
+	--link-visited: #c7a5f5;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	html,
+	html * {
+		transition:
+			color 250ms ease,
+			background-color 250ms ease,
+			border-color 250ms ease;
+	}
 }
 
 * {
