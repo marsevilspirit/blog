@@ -25,8 +25,8 @@ The three single-connection downloads ranged from 27.5 to 32 Mbps. The 147 Mbps 
 
 The automatic group picked node s4 for this test. Cloudflare showed that its exit was in Japan, despite the LA 1000 plan name. When I need a US exit, I choose a US node I've checked.
 
-I also adjusted the routing rules after importing the profile. It originally ended with a single `MATCH,JMS` rule: requests that didn't match an earlier rule went through JMS. I added direct routes for Chinese domains, Chinese IP addresses, and the local network. AI traffic now has its own `AI固定` group, while other overseas traffic goes to `国外上网` and its automatic node selection. I reloaded the profile and checked the connection list; the routes matched what I expected.
+I also adjusted the routing rules after importing the profile. It originally ended with a single `MATCH,JMS` rule: requests that didn't match an earlier rule went through JMS. I added direct routes for Chinese domains, Chinese IP addresses, and the local network. AI traffic now has its own group, while other overseas traffic goes through a separate group that selects a node automatically. I reloaded the profile and checked the connection list; the routes matched what I expected.
 
-I've selected the Japan s4 node in `AI固定`. Other overseas traffic still uses automatic selection, which chooses a node based on latency. For long Codex runs, what I care about is whether the task finishes cleanly. A latency number alone can't tell me that.
+I've selected the Japan s4 node for AI traffic. Other overseas traffic still uses automatic selection, which chooses a node based on latency. For long Codex runs, what I care about is whether the task finishes cleanly. A latency number alone can't tell me that.
 
 I'll use JMS month to month for now. I want to see how much data Codex uses and whether long runs get interrupted before I decide whether to renew.
