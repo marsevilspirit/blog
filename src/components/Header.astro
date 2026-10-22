@@ -30,15 +30,33 @@ const nav = SITE[lang].nav;
 	</nav>
 </header>
 <script is:inline>
-	document.querySelector('.theme-toggle')?.addEventListener('click', () => {
-		const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-		document.documentElement.dataset.theme = theme;
+	(() => {
+		const systemTheme = matchMedia('(prefers-color-scheme: dark)');
+		let hasManualTheme = false;
 		try {
-			localStorage.setItem('color-theme', theme);
+			const theme = localStorage.getItem('color-theme');
+			hasManualTheme = theme === 'light' || theme === 'dark';
 		} catch {
-			// The current page can still switch themes without storage.
+			// Storage can be disabled; follow the system until a manual choice.
 		}
-	});
+		const followSystem = () => {
+			if (!hasManualTheme) {
+				document.documentElement.dataset.theme = systemTheme.matches ? 'dark' : 'light';
+			}
+		};
+		systemTheme.addEventListener('change', followSystem);
+		followSystem();
+		document.querySelector('.theme-toggle')?.addEventListener('click', () => {
+			hasManualTheme = true;
+			const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+			document.documentElement.dataset.theme = theme;
+			try {
+				localStorage.setItem('color-theme', theme);
+			} catch {
+				// The current page can still switch themes without storage.
+			}
+		});
+	})();
 </script>
 <style>
 	header {

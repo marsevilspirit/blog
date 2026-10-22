@@ -17,12 +17,16 @@ const { lang, alternates = {} } = headProps;
 <html lang={SITE[lang].htmlLang} data-theme="light">
 	<head>
 		<script is:inline>
+			document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: dark)').matches
+				? 'dark'
+				: 'light';
 			try {
-				if (localStorage.getItem('color-theme') === 'dark') {
-					document.documentElement.dataset.theme = 'dark';
+				const theme = localStorage.getItem('color-theme');
+				if (theme === 'light' || theme === 'dark') {
+					document.documentElement.dataset.theme = theme;
 				}
 			} catch {
-				// Storage can be disabled; keep the default light theme.
+				// Storage can be disabled; keep the system theme.
 			}
 			document.documentElement.classList.add('has-js');
 		</script>
