@@ -1,5 +1,6 @@
 ---
 import { getCollection, render, type CollectionEntry } from 'astro:content';
+import TableOfContents from '../../../components/TableOfContents.astro';
 import BlogPost from '../../../layouts/BlogPost.astro';
 import { LANGUAGES, type Lang } from '../../../config';
 import { groupAlternates, publishedPostGroups } from '../../../i18n';
@@ -29,9 +30,10 @@ interface Props {
 }
 
 const { entry, lang, alternates } = Astro.props;
-const { Content } = await render(entry);
+const { Content, headings } = await render(entry);
 ---
 
 <BlogPost {...entry.data} lang={lang} alternates={alternates}>
+	<TableOfContents headings={headings} lang={lang} />
 	<Content />
 </BlogPost>
