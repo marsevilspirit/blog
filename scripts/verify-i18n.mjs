@@ -244,6 +244,29 @@ test('404 offers home language navigation without declaring home page translatio
 	}
 });
 
+test('404 provides bilingual explanations and direct recovery links without JavaScript', () => {
+	const main = read('dist/404.html').match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1];
+	assert.ok(main, '404 should render its recovery content in main');
+	assert.match(main, /The page you are looking for does not exist\./);
+	assert.match(main, /Return to the\s+<a\b/);
+	assert.match(main, /<p\b[^>]*lang="zh-CN"[^>]*>[^<]*你访问的页面不存在。/);
+
+	for (const [href, label] of [
+		['/en/', 'English home page'],
+		['/en/posts/', 'English posts'],
+		['/zh/', '中文首页'],
+		['/zh/posts/', '中文文章列表'],
+	]) {
+		assert.match(
+			main,
+			new RegExp(
+				`<a\\b[^>]*href="${RegExp.escape(href)}"[^>]*>\\s*${RegExp.escape(label)}\\s*<\\/a>`,
+			),
+			`404 should provide a direct link to ${href}`,
+		);
+	}
+});
+
 test('localized home pages render expected copy and do not leak post titles from another language', () => {
 	const enHome = read('dist/en/index.html');
 	assert.match(enHome, /<html lang="en"/);
