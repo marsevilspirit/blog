@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content';
+import type { Lang } from '../config';
+import { groupsForLang, postPath, postsPath, publishedPostGroups } from '../i18n';
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const posts = groupsForLang(publishedPostGroups(await getCollection('posts')), lang);
+const pathname = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const currentIndex = posts.findIndex(
+	(post) => new URL(postPath(lang, post.slug), Astro.url).pathname === pathname,
+);
+const nextPost = currentIndex >= 0 ? posts[currentIndex + 1] : undefined;
+---
+
+<nav aria-label={lang === 'zh' ? '文章导航' : 'Post navigation'}>
+	<p>
+		<a href={postsPath(lang)}>{lang === 'zh' ? '返回文章列表' : 'Back to posts'}</a>
+	</p>
+	{nextPost && (
+		<p>
+			<a href={postPath(lang, nextPost.slug)} rel="next">
+				{lang === 'zh' ? '下一篇：' : 'Next: '}
+				{nextPost.entries[lang]!.data.title}
+			</a>
+		</p>
+	)}
+</nav>
+
+<style>
+	nav {
+		margin-top: 2rem;
+		padding-top: 1rem;
+		border-top: 1px solid var(--border);
+	}
+</style>
