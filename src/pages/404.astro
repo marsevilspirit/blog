@@ -12,9 +12,15 @@ const lang = 'en';
 	lang={lang}
 	navigationAlternates={sitePageAlternates('home')}
 >
-	<h1>Page not found</h1>
-	<p>The page you are looking for does not exist.</p>
+	<h1>
+		Page not found / <span lang="zh-CN">页面未找到</span>
+	</h1>
 	<p>
-		<a href="/en/">Go to {SITE_TITLE}</a>
+		The page you are looking for does not exist. Return to the <a href="/en/">English home page</a>{' '}
+		or browse <a href="/en/posts/">English posts</a>.
+	</p>
+	<p lang="zh-CN">
+		你访问的页面不存在。返回<a href="/zh/">中文首页</a>，或浏览<a href="/zh/posts/">中文文章列表</a>
+		。
 	</p>
 </SiteLayout>

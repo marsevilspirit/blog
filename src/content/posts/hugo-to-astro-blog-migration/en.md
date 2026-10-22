@@ -8,6 +8,8 @@ A few years ago, I migrated my blog from Hexo to Hugo. At that time, Hugo felt e
 
 I still think so today. Hugo is a very good static site generator, and Hugo Module is a beautiful design. The Congo theme also stayed with me for a long time. It allowed me to focus on writing instead of always working on the blog itself.
 
+## Why I moved to Astro
+
 But as I wanted more control over my own blog, I started to feel that some parts of Hugo were not suitable for me anymore.
 
 The biggest problem was Go Template. I do not like writing it. When it is mixed with HTML, it always feels strange to me. I dislike writing a large amount of HTML and then inserting template logic inside it. That is not the way I like to express structure. I prefer something closer to functional components, where the logic, parameters, and component structure are all clear.
@@ -20,6 +22,8 @@ Astro feels very direct to me. `src/pages` is routing, `src/content` is content,
 
 I did not want to simply change to another theme. I wanted a blog structure that truly belonged to me.
 
+## AI in the migration
+
 The most special part of this migration is that AI directly participated in the whole process. It was not just helping me complete a few lines of code. I described my requirements one by one, and AI turned them into code, content structure, and deployment configuration.
 
 At first, I only wanted a style close to Bear Blog, and I did not want to use the official template anymore. Then the requirements became clearer: I wanted a complete `/en/` and `/zh/` site split, posts with the same slug, language only shown in the route prefix, each post stored as `src/content/posts/<slug>/en.md` and `zh.md`, no language link when a translation does not exist, language-specific RSS, a Profile-style home page, simple navigation, TOML-based configuration, and direct deployment on Cloudflare Pages.
@@ -29,6 +33,8 @@ Of course, I could have written all of this by myself. But I probably would have
 I made the decisions, and it built the structure. I made the trade-offs, and it handled the details. I reviewed the result, and it fixed the problems.
 
 This is a new way of writing code for me.
+
+## The final blog structure
 
 Now this blog has complete bilingual routes. English is under `/en/`, and Chinese is under `/zh/`. The post list, post pages, About page, and RSS are all split by language. The home page keeps a Profile style. Post excerpts are long enough to feel close to two lines, instead of being so short that the page looks empty. The language switcher is just a simple select box. It does not explain too much and does not take too much space. Cloudflare Pages has also been migrated to v3. The build command is simply `pnpm build`, and the output directory is `dist`.
 

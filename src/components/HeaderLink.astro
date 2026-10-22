@@ -20,7 +20,12 @@ const isActive = normalizedPath.startsWith(normalizedHref);
 </a>
 <style>
 	a {
-		display: inline-block;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 44px;
+		min-height: 44px;
+		padding: 0 0.25rem;
 		text-decoration-thickness: 1px;
 		text-underline-offset: 0.18em;
 	}

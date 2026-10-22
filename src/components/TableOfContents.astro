@@ -1,0 +1,77 @@
+---
+import type { MarkdownHeading } from 'astro';
+import type { Lang } from '../config';
+
+interface Props {
+	headings: MarkdownHeading[];
+	lang: Lang;
+}
+
+const { headings, lang } = Astro.props;
+const tocHeadings = headings.filter(({ depth }) => depth === 2 || depth === 3);
+const sections: { heading: MarkdownHeading; children: MarkdownHeading[] }[] = [];
+
+for (const heading of tocHeadings) {
+	const parent = sections.at(-1);
+	if (heading.depth === 3 && parent?.heading.depth === 2) {
+		parent.children.push(heading);
+	} else {
+		sections.push({ heading, children: [] });
+	}
+}
+
+const label = lang === 'zh' ? '目录' : 'Contents';
+---
+
+{tocHeadings.length >= 3 && (
+	<details class="table-of-contents">
+		<summary>{label}</summary>
+		<nav aria-label={label}>
+			<ul>
+				{sections.map(({ heading, children }) => (
+					<li>
+						<a href={`#${heading.slug}`}>{heading.text}</a>
+						{children.length > 0 && (
+							<ul>
+								{children.map((child) => (
+									<li>
+										<a href={`#${child.slug}`}>{child.text}</a>
+									</li>
+								))}
+							</ul>
+						)}
+					</li>
+				))}
+			</ul>
+		</nav>
+	</details>
+)}
+
+<style>
+	.table-of-contents {
+		margin-bottom: 1.5rem;
+		font-size: 0.95rem;
+	}
+
+	summary {
+		width: fit-content;
+		cursor: pointer;
+	}
+
+	summary:focus-visible {
+		outline: 2px solid var(--link);
+		outline-offset: 0.2rem;
+	}
+
+	nav {
+		margin-top: 0.5rem;
+	}
+
+	ul {
+		margin-bottom: 0;
+	}
+
+	li {
+		margin: 0.2rem 0;
+	}
+</style>

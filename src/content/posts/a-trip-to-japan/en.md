@@ -16,26 +16,26 @@ At noon on January 7th, I landed at Osaka Kansai International Airport. Before l
 
 Afterwards, I took the subway to [Namba](https://en.wikipedia.org/wiki/Namba). My hotel was located nearby, close to many famous landmarks. After a quick and simple exchange with the front desk, I couldn't wait to head out. [Shinsaibashi](https://en.wikipedia.org/wiki/Shinsaibashi) was right outside my hotel, so that was my first stop.
 
-![shinsaibashi-noon1](./images/shinsaibashi-noon1.jpg 'shinsaibashi')
-![shinsaibashi-noon2](./images/shinsaibashi-noon2.jpg 'On the Shinsai Bridge')
-![shinsaibashi-noon3](./images/shinsaibashi-noon3.jpg)
+![Shops lining the river in Shinsaibashi](./images/shinsaibashi-noon1.jpg 'The river in Shinsaibashi')
+![Visitors on the bridge in Shinsaibashi](./images/shinsaibashi-noon2.jpg 'On the bridge in Shinsaibashi')
+![Large billboards beside the river in Shinsaibashi](./images/shinsaibashi-noon3.jpg 'Shinsaibashi street scene')
 
 Shinsaibashi is a bustling and crowded place. It exudes a sense of Showa-era opulence and prosperity, perfectly matching my impression of Osaka's retro vibe. It was packed with tourists, almost all of whom were Chinese. Later, I grabbed a bite to eat there. The food looked very appetizing, but it didn't taste quite as good as I had imagined.
 
-![shinsaibashi-food1](./images/shinsaibashi-food1.jpg 'Very sweet and greasy')
-![shinsaibashi-food2](./images/shinsaibashi-food2.jpg 'Octopus balls')
+![Two desserts bought in Shinsaibashi](./images/shinsaibashi-food1.jpg 'Very sweet and greasy')
+![Takoyaki bought in Shinsaibashi](./images/shinsaibashi-food2.jpg 'Very salty takoyaki')
 
 Each shop looked very fancy, and what left a deep impression on me was the big crab. That is really huge.
 
-![shinsaibashi-shop](./images/shinsaibashi-shop.jpg)
+![A giant crab sign above a shop in Shinsaibashi](./images/shinsaibashi-shop.jpg 'The giant crab that caught my eye')
 
 Since I don't exercise much, I got tired after walking for a while and went back to the hotel to rest. In the evening, I went out for another stroll. [Dotonbori](https://en.wikipedia.org/wiki/Dōtonbori) is right near Shinsaibashi. I wandered around the area, and it was packed with Izakayas. Osaka at night has a truly unique character. Unlike the daytime atmosphere where people are rushing about, there is a sense of indulgence in the air.
 
-![dotonbori-night](./images/dotonbori-night.jpg 'A casual photo of an alley in Dotonbori')
+![An alley in Dotonbori at night](./images/dotonbori-night.jpg 'A casual photo of an alley in Dotonbori')
 
 They looked very tempting, but I had already decided what to eat for dinner, so I resisted the temptation and went back. Since I was really hungry, I went straight to my destination for the night—[Ichiran Ramen](https://en.wikipedia.org/wiki/Ichiran). I waited in a long line, and when I finally got to eat, it was incredibly tasty! The noodles were chewy, the broth was clear but very rich in flavor, the beef slices melted in my mouth, and the soft-boiled egg was perfect. It was so good that after finishing one bowl, I ordered another one!
 
-![Ichiran Ramen](./images/ichiran-ramen.jpg 'Ichiran Ramen')
+![A bowl of ramen at Ichiran](./images/ichiran-ramen.jpg 'Ichiran Ramen')
 
 After eating and drinking enough, I went back to the hotel to rest and prepare for the trip to Universal Studios the next day.
 
@@ -43,19 +43,19 @@ After eating and drinking enough, I went back to the hotel to rest and prepare f
 
 It was also a perfect day. I woke up around 8:00 and went [Universal Studios](https://en.wikipedia.org/wiki/Universal_Studios_Japan). When I arrived, the doors were already open. Before I even went inside, I heard people screaming from the roller coasters, which was quite shocking.
 
-![universal studio front](./images/universal-studio-front.jpg 'The main entrance of Universal Studios')
+![Visitors at the entrance to Universal Studios Japan](./images/universal-studio-front.jpg 'The main entrance of Universal Studios')
 
 The first place I visited was the Harry Potter theme park, and it really felt incredibly authentic. Some people were waving their wands, which they had bought from the themed shop, and dramatically reciting spells at specific attractions. I also got to see a magnificent replica of Hogwarts Castle.
-![Hogwarts Castle](./images/hogwarts-castle.jpg 'Hogwarts Castle')
+![Hogwarts Castle at Universal Studios Japan](./images/hogwarts-castle.jpg 'Hogwarts Castle')
 
 Then I visited the much-talked-about [Super Nintendo World](https://en.wikipedia.org/wiki/Super_Nintendo_World). Although I ended up waiting in line for quite a while, it wasn't as fun as I had imagined. That said, the attention to detail in the scenery and set design was truly impressive!
 
-![Super Nintendo World](./images/super-nintendo-world.jpg 'Super Nintendo World')
+![Super Nintendo World at Universal Studios Japan](./images/super-nintendo-world.jpg 'Super Nintendo World')
 
 I ate some delicious food at Universal Studios. I ordered the fries and sandwich set at the Jaws-themed restaurant. The slightly salty fries and the delicious, juicy sandwich, paired with an ice-cold coke to cut through the richness—it was standard 'American white person food', but it tasted genuinely good.
 
-![universal studios food2](./images/universal-studios-food2.jpg 'Great White Shark Theme Restaurant')
+![Fries, a sandwich, and a drink at the Jaws-themed restaurant](./images/universal-studios-food2.jpg 'Jaws-themed restaurant')
 
 The classic British dinner at the Harry Potter restaurant was surprisingly mixed. I really didn't like the mushroom soup and the unseasoned carrots, but the sweet corn, the tender and juicy chicken drumstick, the meat patty covered in delicious sauce, and the moist pie were all quite good.
 
-![universal studios food1](./images/universal-studios-food1.jpeg 'Harry Potter-themed restaurant')
+![A British dinner with chicken, corn, and soup at the Harry Potter-themed restaurant](./images/universal-studios-food1.jpeg 'Harry Potter-themed restaurant')

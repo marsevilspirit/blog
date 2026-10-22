@@ -1,5 +1,6 @@
 ---
 import FormattedDate from '../components/FormattedDate.astro';
+import PostNavigation from '../components/PostNavigation.astro';
 import type { Lang } from '../config';
 import type { Alternates } from '../i18n';
 import SiteLayout from './SiteLayout.astro';
@@ -41,5 +42,6 @@ const { title, description, pubDate, updatedDate, lang, alternates } = Astro.pro
 		<div class="prose">
 			<slot />
 		</div>
+		<PostNavigation lang={lang} />
 	</article>
 </SiteLayout>

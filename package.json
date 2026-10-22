@@ -17,7 +17,7 @@
 		"typecheck": "astro check",
 		"test": "pnpm run test:unit",
 		"test:unit": "node --test tests/unit/*.test.ts",
-		"test:i18n": "node --test scripts/verify-i18n.mjs",
+		"test:i18n": "node --test scripts/verify-*.mjs",
 		"check": "pnpm run lint && pnpm run format:check && pnpm run typecheck && pnpm run test:unit && pnpm run build && pnpm run test:i18n"
 	},
 	"dependencies": {

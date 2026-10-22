@@ -46,14 +46,17 @@ const fallbackLinks = options.filter((candidate) => candidate !== lang);
 <style>
 	.language-select {
 		display: inline-flex;
-		align-items: baseline;
+		align-items: center;
 		gap: 0.35rem;
 	}
 
 	.language-select select {
+		min-width: 44px;
+		min-height: 44px;
 		max-width: 8rem;
 		border: 1px solid var(--border);
 		border-radius: 3px;
+		padding: 0.25rem 0.35rem;
 		background: var(--background);
 		color: var(--text);
 		font: inherit;
@@ -62,5 +65,12 @@ const fallbackLinks = options.filter((candidate) => candidate !== lang);
 
 	.language-fallback {
 		margin-left: 0.5rem;
+	}
+
+	.language-fallback a {
+		display: inline-flex;
+		align-items: center;
+		min-width: 44px;
+		min-height: 44px;
 	}
 </style>
