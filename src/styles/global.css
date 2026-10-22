@@ -153,6 +153,20 @@ img {
 	height: auto;
 }
 
+.prose figure {
+	margin: 0 0 1.5rem;
+}
+
+.prose figure img {
+	display: block;
+}
+
+.prose figcaption {
+	margin-top: 0.4rem;
+	color: var(--muted);
+	font-size: 0.9rem;
+}
+
 blockquote {
 	margin: 1.25rem 0;
 	padding-left: 1rem;

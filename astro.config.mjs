@@ -3,6 +3,7 @@
 import sitemap from '@astrojs/sitemap';
 import { unified } from '@astrojs/markdown-remark';
 import { defineConfig, fontProviders } from 'astro/config';
+import rehypeImageCaptions from './scripts/rehype-image-captions.mjs';
 
 /** @typedef {Parameters<Exclude<ReturnType<import('@astrojs/markdown-remark').RehypePlugin>, void>>[0]} HastRoot */
 
@@ -15,6 +16,7 @@ export default defineConfig({
 		syntaxHighlight: 'prism',
 		processor: unified({
 			rehypePlugins: [
+				rehypeImageCaptions,
 				() => (tree) => {
 					/** @param {HastRoot | HastRoot['children'][number]} node */
 					function visit(node) {
