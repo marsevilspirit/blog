@@ -60,17 +60,22 @@ const nav = SITE[lang].nav;
 		color: var(--text);
 	}
 	.site-title {
+		display: inline-flex;
+		align-items: center;
+		min-height: 44px;
 		font-size: 1.15rem;
 		font-weight: 700;
 	}
 	.internal-links {
 		display: flex;
-		align-items: baseline;
+		align-items: center;
 		flex-wrap: wrap;
 		gap: 0.75rem;
 	}
 	.theme-toggle {
 		display: none;
+		min-width: 44px;
+		min-height: 44px;
 		border: 1px solid var(--border);
 		border-radius: 3px;
 		padding: 0.05rem 0.35rem;
